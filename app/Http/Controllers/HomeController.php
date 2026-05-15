@@ -13,23 +13,10 @@ class HomeController extends Controller
      */
     public function index(): View
     {
-        // Load projects from JSON/Sitejet if available
+        // Try database first, fallback to XML
         $projects = Project::active()
             ->orderBy('order', 'asc')
-            ->get()
-            ->map(function($p) {
-                return (object)[
-                    'id' => $p->id,
-                    'name' => $p->name,
-                    'slug' => $p->slug,
-                    'description' => $p->description,
-                    'introduction' => $p->description,
-                    'image' => $p->image_url,
-                    'link' => url("/project/{$p->slug}"),
-                    'hours_tag' => $p->hours_tag,
-                    'price_tag' => $p->price_tag,
-                ];
-            });
+            ->get();
 
         // Fallback to XML data if no DB records
         if ($projects->isEmpty()) {
@@ -45,7 +32,7 @@ class HomeController extends Controller
     public function project($slug): View
     {
         $project = Project::where('slug', $slug)->first();
-        
+
         if (!$project) {
             abort(404, 'Project not found');
         }
@@ -56,31 +43,29 @@ class HomeController extends Controller
     /**
      * Load projects from Sitejet XML (fallback)
      */
-    protected function loadProjectsFromXml(): \Illuminate\Support\Collection
+    protected function loadProjectsFromXml()
     {
         $xmlPath = public_path('modules-1/2849388066.xml');
-        
+
         if (!file_exists($xmlPath)) {
             return collect([]);
         }
 
         try {
             $xml = simplexml_load_file($xmlPath);
+
             if (!$xml) {
                 return collect([]);
             }
 
-            return collect((array)$xml->channel->item)->map(function($item, $index) {
-                return (object)[
+            return collect((array) $xml->channel->item)->map(function ($item, $index) {
+                return (object) [
                     'id' => $index + 1,
                     'name' => (string) $item->title,
                     'slug' => strtolower(str_replace([' ', '-'], '-', (string) $item->title)),
                     'description' => strip_tags((string) $item->description) ?: 'No description available.',
-                    'introduction' => 'No description available.',
                     'image' => (string) $item->enclosure['url'],
                     'link' => (string) $item->link,
-                    'hours_tag' => null,
-                    'price_tag' => null,
                 ];
             });
         } catch (\Exception $e) {

@@ -14,5 +14,11 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 Route::view('/legal-notice', 'legal.notice')->name('legal');
 Route::view('/privacy', 'legal.privacy')->name('privacy');
 
-// Projects dynamic pages (placeholder)
+// Projects dynamic pages
 Route::get('/project/{slug}', [HomeController::class, 'project'])->name('project');
+
+// Fallback 404
+Route::fallback(function () {
+    return response()->view('errors.404', [], 404);
+});
+

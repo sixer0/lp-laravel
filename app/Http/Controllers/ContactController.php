@@ -22,29 +22,23 @@ class ContactController extends Controller
                 'ua' => $request->userAgent(),
             ]);
 
-            // Validate
+            // Validate input
             $validated = $request->validate([
-                'company'  => ['required', 'string', 'max:255'],
-                'name'     => ['required', 'string', 'max:255'],
-                'phone'    => ['required', 'string', 'max:50'],
-                'email'    => ['required', 'email', 'max:255'],
-                'message'  => ['required', 'string', 'max:5000'],
-                'privacy'  => ['required', 'accepted'],
-                'captcha'  => ['required', 'integer'],
-                'captcha_hash' => ['required', 'string'],
-            ], [
-                'captcha.required' => 'Please solve the captcha.',
-                'captcha.integer' => 'Please enter a valid number.',
-                'privacy.accepted' => 'You must accept the privacy policy.',
-                'company.required' => 'Company name is required.',
-                'email.email' => 'Please enter a valid email address.',
+                'company' => 'required|string|max:255',
+                'name' => 'required|string|max:255',
+                'phone' => 'required|string|max:50',
+                'email' => 'required|email:rfc|max:255',
+                'message' => 'required|string|max:5000',
+                'privacy' => 'required|accepted',
+                'captcha' => 'required|integer',
+                'captcha_hash' => 'required|string',
             ]);
 
             // Verify captcha
             $hash = $request->input('captcha_hash');
             $answer = $request->input('captcha');
-            
-            if (!hash_equals($hash, md5((string)$answer))) {
+
+            if (!hash_equals($hash, md5((string) $answer))) {
                 throw ValidationException::withMessages([
                     'captcha' => ['Incorrect answer. Please try again.'],
                 ]);
@@ -53,28 +47,28 @@ class ContactController extends Controller
             // Store submission
             $submission = ContactSubmission::create([
                 'company' => $validated['company'],
-                'name'    => $validated['name'],
-                'phone'   => $validated['phone'],
-                'email'   => $validated['email'],
+                'name' => $validated['name'],
+                'phone' => $validated['phone'],
+                'email' => $validated['email'],
                 'message' => $validated['message'],
-                'ip'      => $request->ip(),
-                'user_agent' => $request->userAgent(),
+                'ip' => $request->ip(),
+                'user_agent' => $request->userAgent() ?? '',
                 'user_agent_short' => Str::limit($request->userAgent(), 100),
                 'status' => 'new',
             ]);
 
             \Log::info('Contact submission saved', ['id' => $submission->id]);
 
-            // Send email notification (tambahkan .env jika perlu)
+            // Try to send email notification
             try {
-                Mail::to('sixer0.bk@gmail.com')->send(new \App\Mail\ContactNotification($submission));
+                \Mail::to('sixer0.bk@gmail.com')->send(new \App\Mail\ContactNotification($submission));
             } catch (\Throwable $e) {
                 \Log::warning('Email notification failed: ' . $e->getMessage());
             }
 
             return redirect()
                 ->route('home')
-                ->with('success', 'Thank you for your message! I\'ll get back to you soon.');
+                ->with('success', 'Thank you for your message! I will get back to you soon.');
 
         } catch (ValidationException $e) {
             return back()
@@ -83,9 +77,7 @@ class ContactController extends Controller
                 ->with('error', 'Please fix the errors below.');
 
         } catch (\Throwable $e) {
-            \Log::error('Contact submission error: ' . $e->getMessage(), [
-                'trace' => $e->getTraceAsString(),
-            ]);
+            \Log::error('Contact submission error: ' . $e->getMessage());
 
             return back()
                 ->withInput()
