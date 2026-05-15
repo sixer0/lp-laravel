@@ -4,7 +4,7 @@
     "type": "project",
     "license": "MIT",
     "require": {
-        "php": "^7.4 || ^8.1",
+        "php": "^7.4 || ^8.1 || ^8.5",
         "laravel/framework": "^11.0",
         "laravel/sanctum": "^4.0",
         "guzzlehttp/guzzle": "^7.8"
