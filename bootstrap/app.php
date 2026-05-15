@@ -30,13 +30,4 @@ return Application::configure(basePath: dirname(__DIR__))
             }
         });
     })
-    ->withProviders([
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
-    ])
-    ->create()
-    ->afterResolving(function (Application $app) {
-        // Override public path since we're running from /devlp/ root, not /public/
-        $app->instance('path.public', base_path());
-    });
+    ->create();
