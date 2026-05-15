@@ -1,118 +1,209 @@
-# Laravel + Bootstrap Landing Page
+# Laravel 11.51 + Bootstrap 5 Landing Page
 
-## Stack
-- **Laravel 12** - Framework PHP
-- **Bootstrap 5.3** - CSS Framework
-- **jQuery 3.7** - DOM manipulation
-- **Bootstrap Icons** - Icon set
+**Last updated:** 2026-05-15 | **Compatible with:** Laravel 11.x
 
-## Structure
+## 📦 Stack
+
+| Component | Version | Notes |
+|-----------|---------|-------|
+| PHP | >= 8.1 | cPanel default (11.51) |
+| Laravel | 11.51 | Latest available on server |
+| Bootstrap | 5.3 | Via CDN (jsdelivr) |
+| jQuery | 3.7 | Via CDN |
+| Icons | Bootstrap Icons 1.11 | Via CDN |
+| Database | SQLite (default) / MySQL | Automatic migration |
+
+---
+
+## 📁 Structure
+
 ```
-landing-laravel/
+lp-laravel/
 ├── app/
-│   ├── Http/
-│   │   ├── Controllers/
-│   │   │   ├── HomeController.php
-│   │   │   └── ContactController.php
-│   │   └── Middleware/
-│   ├── Models/
-│   │   └── ContactSubmission.php
+│   ├── Http/Controllers/
+│   │   ├── ContactController.php   # Form handler + validation
+│   │   └── HomeController.php     # Landing + Project detail
+│   ├── Http/Middleware/
+│   │   └── TrustProxies.php       # cPanel load balancer support
 │   ├── Mail/
 │   │   └── ContactNotification.php
-│   └── Providers/
-├── bootstrap/
-│   └── app.php
-├── config/
-│   └── app.php
+│   ├── Models/
+│   │   ├── ContactSubmission.php  # DB model
+│   │   └── Project.php           # Project model + XML loader
+│   └── Providers/                 # App, Auth, Route
+├── bootstrap/app.php              # Laravel 11 bootstrap
+├── config/app.php                 # App config (timezone, locale, etc.)
 ├── database/
-│   └── migrations/
-├── public/               # ← Web root
-│   ├── index.php
-│   ├── css/
-│   ├── js/
-│   ├── images/
-│   ├── modules-1/        # Sitejet XML
-│   └── storage/          # Logs & cache
+│   └── migrations/                # Schema
+├── public/                        # ← Web root
+│   ├── index.php                  # Laravel entry point
+│   ├── .htaccess                  # Apache mod_rewrite
+│   ├── css/ js/ images/           # Static assets
+│   └── modules-1/                 # Sitejet XML collection
 ├── resources/views/
-│   ├── layouts/
-│   │   └── guest.blade.php
-│   └── legal/
-├── routes/
-│   ├── web.php
-│   └── console.php
-├── storage/
-│   └── logs/
-├── .env.example
-├── artisan
-└── composer.json
+│   ├── layouts/guest.blade.php    # Main Bootstrap 5 layout
+│   ├── legal/notice.blade.php     # Legal notice page
+│   ├── legal/privacy.blade.php    # Privacy policy
+│   └── emails/contact-notification.blade.php
+├── routes/web.php                 # All routes
+├── storage/logs/                  # visit.log + laravel.log
+├── .env.example                   # Environment template
+├── server.php                     # Laravel 11 entry
+└── composer.json                  # Dependencies
+
 ```
 
-## Requirement
-- PHP >= 8.2
-- MySQL / PostgreSQL / SQLite
-- Composer 2.x
+---
 
-## Local Setup
+## 🔧 Quick Setup
+
 ```bash
-cd landing-laravel
+# 1. Clone / extract to server
+cd /public_html/devlp/
+tar xzf lp-laravel.tar.gz
 
-# Install dependencies
-composer install
+# 2. Install dependencies (if SSH/Terminal available)
+composer install --no-dev --optimize-autoloader
 
-# Setup environment
+# 3. Setup environment
 cp .env.example .env
 php artisan key:generate
 
-# Setup database (SQLite for quick start)
+# 4. Setup database
 touch database/database.sqlite
+php artisan migrate --force
+php artisan db:seed --class=ProjectSeeder
 
-# Run migration
-php artisan migrate
-
-# Serve locally
-php artisan serve --host=0.0.0.0 --port=8000
+# 5. Clear cache
+php artisan view:clear
+php artisan cache:clear
 ```
 
-## Routes
+---
+
+## 📋 Routes
+
 | Route | Method | Description |
 |-------|--------|-------------|
-| `/` | GET | Landing page |
-| `/contact` | POST | Contact form submission |
-| `/legal-notice` | GET | Legal notice page |
-| `/privacy` | GET | Privacy policy |
-| `/project/{slug}` | GET | Project detail page |
+| `GET /` | Landing page | Bootstrap layout + Sitejet projects |
+| `GET /project/{slug}` | Project detail | Individual project page |
+| `POST /contact` | Form submit | Validation + DB + email |
+| `GET /legal-notice` | Legal | Static legal page |
+| `GET /privacy` | Privacy | Static privacy policy |
+| `*` fallback | 404 | Custom error page |
 
-## Bootstrap 5 Features Used
-- ↓ Responsive grid system (container → row → col-*)
-- ↓ Navbar (fixed-top, collapse on mobile)
-- ↓ Cards (project cards, value cards)
-- ↓ Buttons (primary, outline, size variants)
-- ↓ Forms (floating labels, validation styles)
-- ↓ Carousel (testimonials)
-- ↓ Utilities (text-color, bg-color, spacing)
-- ↓ Icons (Bootstrap Icons)
+---
 
-## PHP Features
-- Blade templating
-- CSRF protection
-- Form validation
-- SQLite/MYSQL contact storage
-- Environment detection
-- Project auto-loading from Sitejet XML
+## 🎨 Bootstrap 5 Components
 
-## Deployment to cPanel
-1. Upload `public/` → `/public_html/devlp/`
-2. Upload `landing-laravel/` (everything except `public/`) → `/public_html/devlp/vendor/` 
-   (Or: `composer install --no-dev --optimize-autoloader` on server via SSH/Terminal)
-3. Update `.env` with live credentials
-4. Run `php artisan migrate --force`
+| Section | Features |
+|---------|----------|
+| **Navbar** | Fixed-top, collapsible on mobile, dropdown |
+| **Hero** | Gradient background, CTA buttons, responsive text |
+| **Values** | 3-col card grid, hover animation |
+| **Services** | 6 cards (icon + title + description) |
+| **Testimonials** | Bootstrap carousel slider |
+| **Projects** | Sitejet XML → Bootstrap cards, image lazy-load |
+| **CTA Banner** | Full-width gradient, WhatsApp button |
+| **Contact Form** | Floating-label form, CSRF, CAPTCHA, validation |
+| **Footer** | 4-col responsive, social icons |
+| **Animations** | IntersectionObserver scroll reveal |
 
-## Features vs HTML version
-| Feature | Landing Page HTML | Laravel + Bootstrap |
-|---------|-----------------|---------------------|
-| Edit content | via FTP HTML | @yield/@include Blade |
-| Contact form | None | ✅ Validation + DB |
-| Project storage | Hardcoded | ✅ Eloquent DB |
-| SEO | Static | ✅ Dynamic meta |
-| Auth | None | ✅ Laravel内置 |
-| Maintenance | Manual | ✅ `php artisan down` |
+---
+
+## 🔌 Laravel 11 Highlights
+
+```php
+// Bootstrap.app.php uses ->configure() (⚠️ NOT 12 syntax)
+return Application::configure(basePath: dirname(__DIR__))
+    ->withRouting(...)
+    ->withMiddleware(...)
+    ->create();
+
+// Config/app.php stores all app settings
+// No separate config files for database/mail by default in this minimal install
+
+// Only Web middleware group
+Route::middleware('web')->group(...)
+
+// TrustProxies for cPanel load balancer
+$proxies = '*';
+$headers = Request::HEADER_X_FORWARDED_ALL;
+```
+
+---
+
+## 🔐 Security Notes
+
+- ✅ CSRF tokens on all forms
+- ✅ Input validation (length, type, required)
+- ✅ CAPTCHA (math-based) to prevent spam
+- ✅ SQL injection protected (Eloquent)
+- ✅ XSS protected (Blade `{{ }}` escaping)
+- ✅ Error pages hide stack traces in production
+
+---
+
+## 📊 Database Schema
+
+```sql
+-- Projects auto-loaded from Sitejet XML
+projects: id | name | slug | description | image | hours_tag | price_tag | order | is_active | timestamps
+
+-- Contact submissions
+contact_submissions: id | company | name | phone | email | message | ip | user_agent | status | timestamps
+```
+
+---
+
+## 🚀 Deploy to cPanel
+
+### Prerequisites on Server
+```bash
+# Check PHP version
+php -v  # Should show 8.1+
+
+# Composer (install if missing)
+curl -sS https://getcomposer.org/installer | php
+```
+
+### Full Deploy
+```bash
+cd /public_html/devlp/
+tar xzf lp-laravel.tar.gz
+
+# Install Composer deps
+php composer.phar install --no-dev --optimize-autoloader
+
+# Setup env
+cp .env.example .env
+php artisan key:generate
+
+# Database
+touch database/database.sqlite
+php artisan migrate --force
+php artisan db:seed --class=ProjectSeeder
+
+# Permissions
+chmod -R 775 storage bootstrap/cache
+```
+
+### Production Checklist
+```bash
+# 1. Set APP_DEBUG=false in .env
+# 2. Generate optimization
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+# 3. Enable OPcache in cPanel PHP settings
+```
+
+---
+
+## 📝 Changelog
+
+### v1.0 — 2026-05-15
+- Laravel 11.51 + Bootstrap 5.3
+- Landing page, contact form, legal pages
+- Sitejet XML auto-loader for projects
+- Email notifications + error logging
