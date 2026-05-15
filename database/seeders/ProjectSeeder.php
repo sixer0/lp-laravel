@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Project;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Str;
 
 class ProjectSeeder extends Seeder
 {

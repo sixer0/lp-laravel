@@ -23,7 +23,11 @@ return Application::configure(basePath: dirname(__DIR__))
             if ($request->expectsJson()) {
                 return response()->json(['error' => $e->getMessage()], 500);
             }
-            return response()->view('errors.500', [], 500);
+            try {
+                return response()->view('errors.500', [], 500);
+            } catch (\Throwable $viewEx) {
+                return response('Server Error: '.$e->getMessage(), 500);
+            }
         });
     })
     ->withProviders([
@@ -31,4 +35,8 @@ return Application::configure(basePath: dirname(__DIR__))
         App\Providers\AuthServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
     ])
-    ->create();
+    ->create()
+    ->afterResolving(function (Application $app) {
+        // Override public path since we're running from /devlp/ root, not /public/
+        $app->instance('path.public', base_path());
+    });

@@ -9,15 +9,18 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
-    # Redirect to public folder
-    RewriteCond %{REQUEST_URI} !^/public/
-    RewriteCond %{REQUEST_URI} ^/$
-    RewriteRule ^(.*)$ public/$1 [L]
+    # -------------------------------------------------------------------
+    # Assets from Sitejet (css, js, images, webcard, g)
+    # These exist directly in devlp/ — serve as-is without touching Laravel
+    # -------------------------------------------------------------------
+    RewriteCond %{REQUEST_URI} ^/(css|js|images|webcard|g|modules-1|expertise|portfolio|projects|get-in-touch|blog-single-page-layout|jobs-1-item|legal-notice|privacy|subpage|real-estate-single-page-layout)/
+    RewriteRule ^ - [L]
 
-    # If the requested filename exists, serve it directly
+    # -------------------------------------------------------------------
+    # Laravel — route everything else through public/index.php
+    # (We placed index.php in root and adjusted paths below)
+    # -------------------------------------------------------------------
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-
-    # Otherwise forward to public/index.php
-    RewriteRule ^(.*)$ public/index.php?$1 [L]
+    RewriteRule ^(.*)$ index.php?$1 [QSA,L]
 </IfModule>
