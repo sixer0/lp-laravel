@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organisasi Industri Militer Saudi — OIMS</title>
-    <meta name="description" content="Organisasi Industri Militer Saudi (OIMS): pilar pertahanan nasional, inovasi teknologi pertahanan, dan kemandirian industri militer.">
-    <meta name="keywords" content="Industri militer Saudi, OIMS, pertahanan nasional, teknologi pertahanan, kemandirian industri">
-    <meta name="author" content="Organisasi Industri Militer Saudi">
+    <title>Sixer0 — Solusi Teknologi &amp; Kreatif</title>
+    <meta name="description" content="Sixer0: konsultan IT dan kreatif web, aplikasi, dan solusi digital untuk bisnis modern.">
+    <meta name="keywords" content="sixer0, web development, aplikasi, solusi digital, konsultan IT, IT consultant">
+    <meta name="author" content="Sixer0">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
@@ -98,60 +98,76 @@
         .section-eyebrow { display:inline-flex; align-items:center; gap:.5rem; font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:1.8px; color:var(--gold-600); margin-bottom:.75rem; }
         .section-eyebrow::before { content:''; width:28px; height:2px; background:var(--gold-600); display:inline-block; }
         .section-title { margin-bottom:1rem; }
-        .section-subtitle { font-size:1.05rem; color:var(--text-mid); max-width:600px; line-height:1.8; }
-        .section-alt { background:#fff; }
-        .divider-gold { width:55px; height:3px; background:var(--gold-500); border-radius:2px; margin:1rem 0 2.5rem; }
 
-        /* ABOUT BULLETS */
-        .about-bullets { list-style:none; padding:0; margin:0; }
-        .about-bullets li { display:flex; align-items:flex-start; gap:.9rem; padding:1.1rem 0; border-bottom:1px solid var(--prussia-100); }
-        .about-bullets li:last-child { border-bottom:none; }
-        .about-bullets .check { flex-shrink:0; width:26px; height:26px; border-radius:50%; background:rgba(212,168,67,.12); color:var(--gold-600); display:flex; align-items:center; justify-content:center; font-size:.7rem; margin-top:.1rem; }
-        .about-bullets strong { display:block; color:var(--prussia-700); margin-bottom:.15rem; }
+        /* ABOUT */
+        .about-card { background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:18px; padding:2.2rem; height:100%; box-shadow:0 4px 30px rgba(0,0,0,.04); transition:.3s; }
+        .about-card:hover { box-shadow:0 12px 45px rgba(0,0,0,.08); transform:translateY(-3px); }
+        .about-card .icon-circle { width:52px; height:52px; border-radius:14px; background:linear-gradient(135deg,var(--prussia-500),var(--prussia-400)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.3rem; margin-bottom:1rem; }
 
-        /* VALUE CARD */
-        .value-card { background:#fff; border-radius:20px; padding:2.5rem 2rem; box-shadow:0 4px 30px rgba(18,28,44,.07); border:1px solid var(--prussia-100); transition:.3s; height:100%; }
-        .value-card:hover { transform:translateY(-5px); box-shadow:0 20px 50px rgba(18,28,44,.12); border-color:rgba(212,168,67,.4); }
-        .value-icon { width:72px; height:72px; border-radius:18px; background:linear-gradient(135deg,var(--prussia-600),var(--prussia-400)); display:flex; align-items:center; justify-content:center; font-size:1.9rem; color:var(--gold-500); margin-bottom:1.4rem; }
-        .value-card h4 { font-size:1.15rem; font-weight:700; color:var(--prussia-700); margin-bottom:.75rem; }
-        .value-card p { color:var(--text-mid); font-size:.95rem; line-height:1.7; }
+        /* SERVICES */
+        .service-card { background:#fff; border-radius:18px; padding:2rem; height:100%; border:1px solid rgba(0,0,0,.06); box-shadow:0 4px 30px rgba(0,0,0,.04); transition:.3s; }
+        .service-card:hover { transform:translateY(-4px); box-shadow:0 16px 50px rgba(0,0,0,.08); }
+        .service-icon { font-size:2rem; color:var(--gold-500); margin-bottom:.9rem; }
+        .service-tags { margin-top:1rem; }
+        .service-tags span { display:inline-block; background:rgba(22,40,40,.07); color:var(--prussia-600); font-size:.76rem; font-weight:600; padding:.22rem .7rem; border-radius:50px; margin:.18rem; }
 
-        /* SERVICE CARD */
-        .service-card { background:#fff; border-radius:20px; padding:2.2rem; box-shadow:0 4px 24px rgba(18,28,44,.06); border-left:4px solid var(--gold-500); transition:.3s; height:100%; }
-        .service-card:hover { transform:translateY(-4px); box-shadow:0 16px 40px rgba(18,28,44,.12); }
+        /* ADVANTAGES */
+        .advantage-item { display:flex; gap:1.2rem; align-items:flex-start; padding:1.8rem; border-radius:16px; transition:.3s; }
+        .advantage-item:hover { background:rgba(212,168,67,.05); }
+        .adv-icon { width:44px; height:44px; border-radius:50%; background:rgba(212,168,67,.12); display:flex; align-items:center; justify-content:center; color:var(--gold-600); font-size:1.1rem; flex-shrink:0; }
 
-        /* PROJECT CARD */
-        .project-card { border-radius:16px; overflow:hidden; border:1px solid var(--prussia-100); box-shadow:0 4px 20px rgba(18,28,44,.06); transition:.3s; background:#fff; height:100%; }
-        .project-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(18,28,44,.12); }
-        .project-card .img-wrap { height:210px; overflow:hidden; background:var(--prussia-100); position:relative; }
-        .project-card .img-wrap img { width:100%; height:100%; object-fit:cover; transition:.4s; }
-        .project-card:hover .img-wrap img { transform:scale(1.05); }
+        /* PROJECTS */
+        .project-card { border:none; border-radius:18px; overflow:hidden; box-shadow:0 4px 30px rgba(0,0,0,.06); transition:.3s height:100%; }
+        .project-card:hover { transform:translateY(-5px); box-shadow:0 16px 50px rgba(0,0,0,.1); }
+        .project-img { width:100%; height:210px; background:linear-gradient(135deg,var(--prussia-600),var(--prussia-400)); display:flex; align-items:center; justify-content:center; color:rgba(255,255,255,.25); font-size:3.5rem; }
+        .project-card .card-body { padding:1.5rem; }
+        .project-hours { font-size:.78rem; color:var(--text-light); }
+
+        /* VISION */
+        .vision-box { background:linear-gradient(135deg,var(--prussia-700),var(--prussia-600)); border-radius:20px; padding:3rem; color:#fff; }
+        .vision-box h2 { color:#fff; }
+        .vision-box p { color:rgba(255,255,255,.75); }
+
+        /* RESULTS */
+        .result-stat { text-align:center; padding:2rem; }
+        .result-stat .num { font-family:'Playfair Display',serif; font-size:3.2rem; font-weight:800; color:var(--gold-500); }
+        .result-stat .lbl { font-size:.9rem; color:var(--text-mid); margin-top:.3rem; }
+
+        /* TEAM */
+        .team-card { text-align:center; padding:1.8rem; }
+        .team-avatar { width:80px; height:80px; border-radius:50%; background:linear-gradient(135deg,var(--prussia-600),var(--prussia-400)); margin:0 auto 1rem; display:flex; align-items:center; justify-content:center; color:#fff; font-size:1.8rem; }
+        .team-role { font-size:.82rem; color:var(--text-light); }
 
         /* CONTACT */
-        .contact-section { background:linear-gradient(135deg,var(--prussia-700),var(--prussia-600)); color:#fff; padding:6rem 0; }
-        .contact-form-card { background:rgba(255,255,255,.95); border-radius:22px; padding:3rem; box-shadow:0 20px 60px rgba(0,0,0,.15); backdrop-filter:blur(10px); }
-        .form-control, .form-select { border:2px solid var(--prussia-200); border-radius:12px; padding:.78rem 1rem; font-size:.97rem; transition:.2s; }
-        .form-control:focus, .form-select:focus { border-color:var(--gold-500); box-shadow:0 0 0 4px rgba(212,168,67,.12); outline:none; }
-        .form-label { font-weight:600; color:var(--prussia-700); font-size:.88rem; margin-bottom:.4rem; }
-        .btn-send { background:var(--prussia-700); color:var(--gold-500); border:none; border-radius:12px; padding:.9rem 2.2rem; font-weight:600; font-size:1rem; width:100%; transition:.3s; cursor:pointer; }
-        .btn-send:hover { background:var(--prussia-600); transform:translateY(-2px); }
+        .contact-form-card { background:#fff; border-radius:20px; padding:2.5rem; box-shadow:0 4px 30px rgba(0,0,0,.05); }
+        .form-control:focus { border-color:var(--gold-500); box-shadow:0 0 0 .2rem rgba(212,168,67,.15); }
+        .form-label { font-weight:600; font-size:.88rem; color:var(--text-mid); }
+        .btn-submit { background:var(--gold-500); color:var(--prussia-700); border:none; padding:.75rem 2rem; border-radius:10px; font-weight:600; }
+        .btn-submit:hover { background:var(--gold-600); }
 
         /* FOOTER */
-        footer { background:var(--prussia-700); color:rgba(255,255,255,.7); font-size:.9rem; }
-        footer h5, footer h6 { color:var(--gold-500); font-family:'Playfair Display',serif; margin-bottom:1rem; }
-        footer a { color:rgba(255,255,255,.65); text-decoration:none; transition:color .2s; }
+        footer { background:var(--prussia-700); color:rgba(255,255,255,.65); padding:3.5rem 0 2rem; }
+        footer h5 { color:var(--gold-500); font-weight:700; margin-bottom:1rem; }
+        footer a { color:rgba(255,255,255,.5); text-decoration:none; transition:.2s; }
         footer a:hover { color:var(--gold-500); }
-        .footer-social a { display:inline-flex; align-items:center; justify-content:center; width:42px; height:42px; border-radius:50%; background:rgba(255,255,255,.07); margin-right:.65rem; font-size:1.15rem; color:#fff; transition:.2s; }
+        .footer-brand { font-size:1.4rem; color:var(--gold-500)!important; font-weight:800; }
+        .footer-social a { display:inline-flex; width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,.07); align-items:center; justify-content:center; margin-right:.5rem; color:rgba(255,255,255,.65); transition:.2s; }
         .footer-social a:hover { background:var(--gold-500); color:var(--prussia-700); }
 
+        /* ADMIN MODAL */
+        #admin-login { visibility:hidden; opacity:0; transition:opacity .4s; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; z-index:2000; }
+        #admin-logx { visibility:hidden; opacity:0; transition:opacity .4s; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,.55); display:flex; align-items:center; justify-content:center; z-index:2001; }
+        .admin-box { background:#fff; border-radius:18px; padding:2.2rem; width:100%; max-width:400px; box-shadow:0 20px 60px rgba(0,0,0,.2); }
+        .admin-close { position:absolute; top:.8rem; right:1rem; background:none; border:none; font-size:1.4rem; color:var(--text-light); cursor:pointer; }
+
         /* DEV BADGE */
-        .dev-badge { position:fixed; bottom:18px; right:18px; background:var(--gold-600); color:var(--prussia-700); padding:8px 16px; border-radius:10px; font-size:.82rem; font-weight:700; z-index:9999; box-shadow:0 4px 15px rgba(140,110,35,.3); text-decoration:none; transition:.2s; cursor:pointer; }
-        .dev-badge:hover { background:var(--gold-500); transform:translateY(-2px); }
+        .dev-badge { position:fixed; bottom:.5rem; left:.5rem; background:rgba(180,40,40,.9); color:#fff; font-size:.72rem; font-weight:700; padding:.25rem .7rem; border-radius:50px; z-index:9999; letter-spacing:.4px; }
 
-        /* ANIMATIONS */
-        .anim { opacity:0; transform:translateY(28px); transition:opacity .65s ease, transform .65s ease; }
-        .anim.in { opacity:1; transform:none; }
+        /* ANIM */
+        .anim { opacity:0; transform:translateY(22px); transition:opacity .5s ease-out, transform .5s ease-out; }
+        .anim.in { opacity:1; transform:translateY(0); }
 
+        /* RESPONSIVE */
         @media (max-width:992px) { .about-grid{grid-template-columns:1fr;gap:2.5rem;} .hero-grid{grid-template-columns:1fr 1fr;} }
         @media (max-width:768px) { .hero-grid{grid-template-columns:1fr;} .navbar-collapse{background:var(--prussia-700);padding:1rem;border-radius:10px;margin-top:.6rem;} .contact-form-card{padding:1.5rem;} .section-title{font-size:2rem!important;} .hero-title{font-size:2.2rem!important;} }
     </style>
@@ -161,7 +177,7 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <a class="navbar-brand" href="/"><i class="bi bi-shield-check me-2"></i>OIMS</a>
+            <a class="navbar-brand" href="/"><i class="bi bi-shield-check me-2"></i>Sixer0</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -169,97 +185,100 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
                     <li class="nav-item"><a class="nav-link" href="#layanan">Layanan</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#keunggulan">Keunggulan</a></li>
                     <li class="nav-item"><a class="nav-link" href="#proyek">Proyek</a></li>
                     <li class="nav-item"><a class="nav-link" href="#visi">Visi &amp; Misi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link btn btn-hero-primary text-white ms-2 px-3 py-1" href="#kontak">Mari Bicara</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#tim">Tim</a></li>
+                    <li class="nav-item"><a class="nav-link btn btn-hero-primary text-white ms-2 px-3 py-1" href="#kontak">Mari Bicara</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- NAV ANCHOR for admin -->
+    <div id="admin-logx" onclick="this.style.opacity='0';setTimeout(()=>this.style.visibility='hidden',400)">
+        <div class="admin-box">
+            <button class="admin-close" onclick="this.closest('#admin-logx').style.opacity='0';setTimeout(()=>this.closest('#admin-logx').style.visibility='hidden',400)">&times;</button>
+            <h5 class="mb-3">Admin</h5>
+            <form method="POST" action="/admin/login">
+                @csrf
+                <div class="mb-3"><label class="form-label">Username</label><input type="text" name="username" class="form-control" required></div>
+                <div class="mb-3"><label class="form-label">Password</label><input type="password" name="password" class="form-control" required></div>
+                <button type="submit" class="btn btn-submit w-100">Masuk</button>
+            </form>
+        </div>
+    </div>
+
     <!-- HERO -->
-    <section id="tentang" class="hero-section">
+    <section class="hero-section">
         <div class="container position-relative" style="z-index:1;">
             <div class="row align-items-center">
-                <div class="col-lg-7 mb-5 mb-lg-0">
-                    <div class="hero-badge"><i class="bi bi-star-fill"></i> Industri Pertahanan Terdepan</div>
-                    <h1 class="hero-title">
-                        Organisasi<br><em>Industri Militer</em> Saudi
-                    </h1>
-                    <p class="hero-subtitle">
-                        Sejak 2014, OIMS menjadi pilar pertahanan nasional Arab Saudi — mengonsolidasikan industri pertahanan dalam negeri, merancang dan memproduksi sistem persenjataan canggih, serta menjalin kemitraan strategis lintas benua untuk menjaga kedaulatan negara.
-                    </p>
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="hero-badge"><i class="bi bi-lightning-charge-fill me-1"></i>Teknologi Indonesia</div>
+                    <h1 class="hero-title">Solusi Digital<br>yang <em>Modern</em> &amp; Andal</h1>
+                    <p class="hero-subtitle">Konsultan IT dan kreatif yang membantu bisnis dan organisasi bertransformasi melalui solusi web, aplikasi, dan arsitektur sistem yang tangguh dan berkelanjutan.</p>
                     <div class="hero-cta">
-                        <a class="btn-hero btn-hero-primary" href="#layanan"><i class="bi bi-tools"></i> Lihat Layanan</a>
-                        <a class="btn-hero btn-hero-ghost" href="#visi"><i class="bi bi-play-circle"></i> Tonton Profil</a>
+                        <a href="#layanan" class="btn-hero btn-hero-primary"><i class="bi bi-rocket-takeoff"></i> Lihat Layanan</a>
+                        <a href="#kontak" class="btn-hero btn-hero-ghost"><i class="bi bi-chat-dots"></i> Hubungi Kami</a>
                     </div>
                 </div>
-                <div class="col-lg-5">
+                <div class="col-lg-5 d-none d-lg-block">
                     <div class="hero-grid">
-                        <div class="stat-card"><div class="stat-icon"><i class="bi bi-bar-chart-line"></i></div><div class="stat-number">250+</div><div class="stat-label">Proyek Strategis</div></div>
-                        <div class="stat-card"><div class="stat-icon"><i class="bi bi-globe"></i></div><div class="stat-number">35+</div><div class="stat-label">Negara Mitra</div></div>
-                        <div class="stat-card"><div class="stat-icon"><i class="bi bi-people"></i></div><div class="stat-number">15K+</div><div class="stat-label">Profesional Ahli</div></div>
-                        <div class="stat-card"><div class="stat-icon"><i class="bi bi-trophy"></i></div><div class="stat-number">95%</div><div class="stat-label">Promil &amp; Kelengkapan</div></div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="bi bi-code-slash"></i></div>
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Proyek Selesai</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="bi bi-people"></i></div>
+                            <div class="stat-number">30+</div>
+                            <div class="stat-label">Klien Puas</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="bi bi-clock-history"></i></div>
+                            <div class="stat-number">8+</div>
+                            <div class="stat-label">Tahun Pengalaman</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="bi bi-trophy"></i></div>
+                            <div class="stat-number">99%</div>
+                            <div class="stat-label">Tingkat Kepuasan</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ABOUT -->
-    <section id="about" class="section-alt">
+    <!-- TENTANG -->
+    <section id="tentang" style="background:#fff;">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-6 mb-4 mb-lg-0 anim">
-                    <div class="section-eyebrow">Tentang Kami</div>
-                    <h2 class="section-title">Membangun <em>Pertahanan</em><br>Dari Dalam Negeri</h2>
-                    <p style="color:var(--text-mid);line-height:1.8;margin-bottom:1.5rem;">
-                        Organisasi Industri Militer Saudi (OIMS — <em>General Organization for Military Industries</em>) didirikan pada tahun 2014 dengan amanah khusus memenuhi kebutuhan pertahanan nasional Arab Saudi secara mandiri. Sejak pembentukannya, OIMS telah bertransformasi menjadi pusat integrasi industri pertahanan, menggandeng swasta nasional, mitra internasional, dan lembaga riset dalam satu ekosistem inovatif.
-                    </p>
-                    <p style="color:var(--text-mid);line-height:1.8;">
-                        Visi OIMS adalah mewujudkan kemandirian industri pertahanan Arab Saudi sebesar 50% pada tahun 2030, dengan menyelenggarakan pabrik-pabrik pemurni logam, pengolahan polimer, perakitan sistem elektronika, dan tes balistik secara end-to-end di wilayah negeri sendiri.
-                    </p>
-                    <ul class="about-bullets">
-                        <li><span class="check"><i class="bi bi-check"></i></span><div><strong>Gagasan Berdikari</strong><small style="color:var(--text-mid);display:block;">Mendorong inovasi dan R&amp;D dalam negeri untuk produk-produk strategis.</small></div></li>
-                        <li><span class="check"><i class="bi bi-check"></i></span><div><strong>Kemitraan Global</strong><small style="color:var(--text-mid);display:block;">Aliansi strategis dengan AS, Eropa, dan Asia untuk transfer teknologi.</small></div></li>
-                        <li><span class="check"><i class="bi bi-check"></i></span><div><strong>Pembangunan SDM</strong><small style="color:var(--text-mid);display:block;">15.000+ profesional terlatih di bidang strategi, rekayasa, dan manufaktur.</small></div></li>
-                    </ul>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center anim">
+                    <div class="section-eyebrow mx-auto">Tentang Kami</div>
+                    <h2 class="section-title">Membangun Kemandirian<br>Teknologi Indonesia</h2>
+                    <p style="color:var(--text-mid);">Didirikan pada tahun 2017, Sixer0 adalah konsultan IT dan kreatif yang berdedikasi menghadirkan solusi teknologi berkelanjutan, aman, dan mudah diadopsi untuk berbagai sektor industri di Indonesia dan kawasan Asia Tenggara.</p>
                 </div>
-                <div class="col-lg-6 anim">
-                    <div class="bg-white rounded-4 shadow-lg p-4" style="border:1px solid var(--prussia-100);">
-                        <div class="ratio ratio-16x9 rounded-3 overflow-hidden mb-4" style="background:linear-gradient(135deg,var(--prussia-200),var(--prussia-400));">
-                            <div class="d-flex align-items-center justify-content-center" style="min-height:220px">
-                                <div class="text-center" style="color:var(--prussia-600)">
-                                    <i class="bi bi-display" style="font-size:3.5rem;display:block;margin-bottom:.75rem"></i>
-                                    <strong>Sistem Komando &amp; Kendali</strong><br>
-                                    <small>Infrastruktur digital terintegrasi OIMS</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row g-2">
-                            <div class="col-6">
-                                <div class="p-3 rounded-3" style="background:var(--prussia-50);border:1px solid var(--prussia-100)">
-                                    <small style="color:var(--text-mid);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px">Didirikan</small>
-                                    <div style="font-weight:700;color:var(--prussia-700);font-size:1.2rem;margin-top:.2rem">2014</div>
-                                </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="p-3 rounded-3" style="background:var(--prussia-50);border:1px solid var(--prussia-100)">
-                                    <small style="color:var(--text-mid);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px">Kantor Pusat</small>
-                                    <div style="font-weight:700;color:var(--prussia-700);font-size:1.2rem;margin-top:.2rem">Riyadh, KSA</div>
-                                </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="p-3 rounded-3" style="background:var(--prussia-50);border:1px solid var(--prussia-100)">
-                                    <small style="color:var(--text-mid);font-size:.75rem;text-transform:uppercase;letter-spacing:.5px">Tujuan 2030</small>
-                                    <div style="font-weight:700;color:var(--prussia-700);font-size:1.2rem;margin-top:.2rem">50% Kemandirian Industri Pertahanan Nasional</div>
-                                </div>
-                            </div>
-                        </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 anim">
+                    <div class="about-card">
+                        <div class="icon-circle"><i class="bi bi-code-square"></i></div>
+                        <h5>Pengembangan Perangkat Lunak</h5>
+                        <p class="text-muted mt-2">Rancang dan bangun aplikasi web dan mobile sesuai kebutuhan bisnis, dari MVP hingga sistem enterprise skala besar.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 anim">
+                    <div class="about-card">
+                        <div class="icon-circle"><i class="bi bi-shield-lock"></i></div>
+                        <h5>Keamanan Siber &amp; Audit</h5>
+                        <p class="text-muted mt-2">Layanan audit keamanan siber, pengujian penetrasi, dan perencanaan recovery untuk melindungi aset digital bisnis.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 anim">
+                    <div class="about-card">
+                        <div class="icon-circle"><i class="bi bi-cloud-arrow-up"></i></div>
+                        <h5>Cloud &amp; Infrastruktur</h5>
+                        <p class="text-muted mt-2">Migrasi, arsitektur, dan pengelolaan infrastruktur cloud dengan emphasis pada ketersediaan tinggi dan biaya optimal.</p>
                     </div>
                 </div>
             </div>
@@ -267,63 +286,61 @@
     </section>
 
     <!-- LAYANAN -->
-    <section id="layanan">
+    <section id="layanan" style="background:var(--prussia-50);">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto anim">
-                    <div class="section-eyebrow mx-auto">Layanan Utama</div>
-                    <h2 class="section-title">Laporan Strategis &amp; Operasional</h2>
-                    <div class="divider-gold mx-auto"></div>
-                    <p class="section-subtitle mx-auto">OIMS menyelenggarakan berbagai layanan strategis untuk mendukung ekosistem industri pertahanan nasional — dari pengendalian kualitas hingga pertahanan siber.</p>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center anim">
+                    <div class="section-eyebrow mx-auto">Layanan</div>
+                    <h2 class="section-title">Layanan Teknologi<br>yang Andal</h2>
                 </div>
             </div>
             <div class="row g-4">
                 <div class="col-lg-4 col-md-6 anim">
                     <div class="service-card">
-                        <div class="value-icon mb-3"><i class="bi bi-shield-lock"></i></div>
-                        <h4>Teknologi &amp; Pertahanan</h4>
-                        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.7;">Pengembangan sistem persenjataan, radar, sistem kendali, dan sensor canggih serta IoT untuk keamanan nasional.</p>
-                        <a href="#" class="btn btn-outline-dark btn-sm mt-3" style="border-radius:8px;">Pelajari Lebih &rarr;</a>
+                        <div class="service-icon"><i class="bi bi-globe2"></i></div>
+                        <h5>Web Development</h5>
+                        <p class="text-muted">Website dan aplikasi web dengan arsitektur modern: Laravel, React, atau headless sesuai kebutuhan.</p>
+                        <div class="service-tags"><span>Laravel</span><span>React</span><span>Bootstrap</span></div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 anim">
                     <div class="service-card">
-                        <div class="value-icon mb-3"><i class="bi bi-bar-chart"></i></div>
-                        <h4>Manufaktur Taktis</h4>
-                        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.7;">Produksi suku cadang, komponen respon, &amp; sistem pertahanan secara massal — didukung rantai pasok terintegrasi dan QS-9000.</p>
-                        <a href="#" class="btn btn-outline-dark btn-sm mt-3" style="border-radius:8px;">Pelajari Lebih &rarr;</a>
+                        <div class="service-icon"><i class="bi bi-phone"></i></div>
+                        <h5>Mobile App</h5>
+                        <p class="text-muted">Aplikasi mobile Flutter atau React Native yang performa tinggi dan user-friendly.</p>
+                        <div class="service-tags"><span>Flutter</span><span>React Native</span></div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 anim">
                     <div class="service-card">
-                        <div class="value-icon mb-3"><i class="bi bi-cpu"></i></div>
-                        <h4>Pertahanan Siber</h4>
-                        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.7;">Security Operations Center (SOC), threat intelligence, defensif siber, dan respons insiden untuk melindungi infrastruktur pertahanan digital.</p>
-                        <a href="#" class="btn btn-outline-dark btn-sm mt-3" style="border-radius:8px;">Pelajari Lebih &rarr;</a>
+                        <div class="service-icon"><i class="bi bi-shield-check"></i></div>
+                        <h5>Keamanan Siber</h5>
+                        <p class="text-muted">Layanan penilaian risiko siber, hardening, dan training kesadaran keamanan.</p>
+                        <div class="service-tags"><span>OWASP</span><span>Pentest</span><span>CERT</span></div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 anim">
                     <div class="service-card">
-                        <div class="value-icon mb-3"><i class="bi bi-building"></i></div>
-                        <h4>Kemitraan &amp; Investasi</h4>
-                        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.7;">Jembatan antara investor global, produsen pertahanan, dan perusahaan dalam negeri untuk proyek-proyek strategis sektor pertahanan.</p>
-                        <a href="#" class="btn btn-outline-dark btn-sm mt-3" style="border-radius:8px;">Pelajari Lebih &rarr;</a>
+                        <div class="service-icon"><i class="bi bi-diagram-3"></i></div>
+                        <h5>Struktur &amp; Konsultasi</h5>
+                        <p class="text-muted">Konsultasi strategis digital, arsitektur sistem, dan transformation roadmap untuk organisasi.</p>
+                        <div class="service-tags"><span>Strategy</span><span>Architecture</span></div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 anim">
                     <div class="service-card">
-                        <div class="value-icon mb-3"><i class="bi bi-book"></i></div>
-                        <h4>Standarisasi &amp; Sertifikasi</h4>
-                        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.7;">Audit, verifikasi, dan sertifikasi produk pertahanan sesuai standar NATO dan standar nasional KSA.</p>
-                        <a href="#" class="btn btn-outline-dark btn-sm mt-3" style="border-radius:8px;">Pelajari Lebih &rarr;</a>
+                        <div class="service-icon"><i class="bi bi-pie-chart"></i></div>
+                        <h5>Data &amp; Analitik</h5>
+                        <p class="text-muted">Desain data pipeline, dashboard analitik, dan report otomatis untuk pengambilan keputusan.</p>
+                        <div class="service-tags"><span>BI</span><span>Analytics</span><span>SQL</span></div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 anim">
                     <div class="service-card">
-                        <div class="value-icon mb-3"><i class="bi bi-graph-up-arrow"></i></div>
-                        <h4>Pengendalian &amp; Evaluasi</h4>
-                        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.7;">Sistem evaluasi kinerja, pelaporan strategis, dan intelligence untuk memastikan yang mendukungnya mengikuti misi nasional pertahanan.</p>
-                        <a href="#" class="btn btn-outline-dark btn-sm mt-3" style="border-radius:8px;">Pelajari Lebih &rarr;</a>
+                        <div class="service-icon"><i class="bi bi-cpu"></i></div>
+                        <h5>Integrasi &amp; Otomatisasi</h5>
+                        <p class="text-muted">Tersambung dengan API pihak ketiga, otomatisasi alur kerja, dan eliminasi proses manual.</p>
+                        <div class="service-tags"><span>API</span><span>Automation</span><span>DevOps</span></div>
                     </div>
                 </div>
             </div>
@@ -333,41 +350,29 @@
     <!-- KEUNGGULAN -->
     <section id="keunggulan" style="background:#fff;">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto anim">
-                    <div class="section-eyebrow mx-auto">Mengapa OIMS</div>
-                    <h2 class="section-title">Keunggulan Kompetitif</h2>
-                    <div class="divider-gold mx-auto"></div>
-                    <p class="section-subtitle mx-auto">Lebih dari sekadar produsen — OIMS adalah ekosistem integrasi penuh yang menghubungkan inovasi, kualitas, dan kedaulatan nasional.</p>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center anim">
+                    <div class="section-eyebrow mx-auto">Keunggulan</div>
+                    <h2 class="section-title">Mengapa Memilih<br>Sixer0?</h2>
                 </div>
             </div>
             <div class="row g-4">
-                <div class="col-lg-3 col-md-6 anim">
-                    <div class="value-card text-center">
-                        <div class="value-icon mx-auto"><i class="bi bi-lightning-charge"></i></div>
-                        <h4>Inovasi Cepat</h4>
-                        <p>R&amp;D in-house yang lepas dari konsep ke prototipe hingga massal dalam hitungan bulan, bukan tahun.</p>
+                <div class="col-lg-4 col-md-6 anim">
+                    <div class="advantage-item">
+                        <div class="adv-icon"><i class="bi bi-award"></i></div>
+                        <div><h6>Standar Tinggi</h6><p class="text-muted mb-0">Mengikuti best practice industri untuk setiap fitur yang dikirim, mulai dari keamanan hingga performa.</p></div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 anim">
-                    <div class="value-card text-center">
-                        <div class="value-icon mx-auto"><i class="bi bi-building-gear"></i></div>
-                        <h4>Manufaktur Lokal</h4>
-                        <p>Pabrik-pabrik OIMS di seluruh wilayah KSA memastikan rantai pasok aman, terjamin kualitas dan keamanan data.</p>
+                <div class="col-lg-4 col-md-6 anim">
+                    <div class="advantage-item">
+                        <div class="adv-icon"><i class="bi bi-lightbulb"></i></div>
+                        <div><h6>Solusi Inovatif</h6><p class="text-muted mb-0">Menerapkan pendekatan berpikir maju untuk setiap masalah, menawarkan solusi yang tidak hanya cepat, tapi juga strategis.</p></div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 anim">
-                    <div class="value-card text-center">
-                        <div class="value-icon mx-auto"><i class="bi bi-shield-check"></i></div>
-                        <h4>Standar Global</h4>
-                        <p>Setiap produk lulus audit NATO dan ISO — memastikan ekspor dan interoperabilitas dengan sekutu strategis.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 anim">
-                    <div class="value-card text-center">
-                        <div class="value-icon mx-auto"><i class="bi bi-people"></i></div>
-                        <h4>Tim Ahli</h4>
-                        <p>15.000+ profesional dari 40+ negara, dipersiapkan melalui program magang dan pelatihan khusus OIMS.</p>
+                <div class="col-lg-4 col-md-6 anim">
+                    <div class="advantage-item">
+                        <div class="adv-icon"><i class="bi bi-headset"></i></div>
+                        <div><h6>Dukungan Berkelanjutan</h6><p class="text-muted mb-0">Layanan purna jual dan dukungan teknis yang responsif ada untuk setiap klien setelah proyek selesai.</p></div>
                     </div>
                 </div>
             </div>
@@ -375,93 +380,62 @@
     </section>
 
     <!-- PROYEK -->
-    <section id="proyek" class="section-alt">
+    <section id="proyek" style="background:var(--prussia-50);">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto anim">
-                    <div class="section-eyebrow mx-auto">Portofolio</div>
-                    <h2 class="section-title">Proyek Unggulan</h2>
-                    <div class="divider-gold mx-auto"></div>
-                    <p class="section-subtitle mx-auto">Dari sistem alutsista hingga platform digital — pilihan proyek strategis yang telah diselesaikan OIMS untuk memenuhi kebutuhan pertahanan nasional.</p>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center anim">
+                    <div class="section-eyebrow mx-auto">Proyek Terpilih</div>
+                    <h2 class="section-title">Beberapa Karya<br>yang Telah Kami Selesaikan</h2>
                 </div>
             </div>
             <div class="row g-4">
                 @foreach($projects as $project)
                 <div class="col-lg-4 col-md-6 anim">
-                    <div class="project-card">
-                        <div class="img-wrap">
-                            @if($project->image)
-                            <img src="{{ $project->image }}" alt="{{ $project->name }}" loading="lazy">
-                            @else
-                            <div class="d-flex align-items-center justify-content-center" style="height:100%;background:linear-gradient(135deg,var(--prussia-200),var(--prussia-400))">
-                                <i class="bi bi-folder2-open" style="font-size:3rem;color:var(--prussia-600)"></i>
-                            </div>
-                            @endif
-                        </div>
-                        <div class="p-4">
-                            <h5 class="project-title" style="font-family:'Playfair Display',serif;font-weight:700;color:var(--prussia-700);">{{ $project->name }}</h5>
-                            <p class="project-desc">{{ $project->description }}</p>
+                    <div class="project-card card">
+                        <div class="project-img"><i class="bi bi-folder2-open"></i></div>
+                        <div class="card-body">
+                            <span class="project-hours">{{ $project->hours_tag ?? '' }} &bull; {{ $project->price_tag ?? '' }}</span>
+                            <h5 class="mt-2">{{ $project->name }}</h5>
+                            <p class="text-muted mb-3">{{ $project->description }}</p>
                             @if($project->project_url)
-                            <a href="{{ $project->project_url }}" target="_blank" rel="noopener" class="btn btn-sm btn-outline-primary" style="border-color:var(--prussia-200);border-radius:8px;">Lihat Detail <i class="bi bi-arrow-right"></i></a>
+                            <a href="{{ $project->project_url }}" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="border-color:var(--prussia-400);color:var(--prussia-600);border-radius:8px;font-size:.85rem;padding:.45rem 1.1rem;">Lihat Detail &rarr;</a>
                             @endif
                         </div>
                     </div>
                 </div>
                 @endforeach
-
-                @if($projects->isEmpty())
-                <div class="col-12 text-center py-5">
-                    <i class="bi bi-box" style="font-size:3rem;color:var(--prussia-200)"></i>
-                    <p class="mt-3" style="color:var(--text-mid)">Proyek akan ditampilkan di sini.</p>
-                </div>
-                @endif
             </div>
         </div>
     </section>
 
     <!-- VISI & MISI -->
-    <section id="visi" style="background:var(--prussia-700);color:#fff;">
+    <section id="visi" style="background:#fff;">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-5 mb-4 mb-lg-0 anim">
-                    <div class="section-eyebrow" style="color:var(--gold-500);">Visi &amp; Misi</div>
-                    <h2 style="color:#fff;margin-bottom:1.5rem;">Mewujudkan <em>Kedaulatan</em><br>Pertahanan Nasional</h2>
-                    <p style="color:rgba(255,255,255,.7);line-height:1.8;">Di tengah lanskap geostrategi yang terus bergerak, OIMS berkomitmen penuh menghadirkan kemandirian industri pertahanan Arab Saudi minimal 50% pada tahun 2030 — dengan tetap menjaga interoperabilitas dengan sekutu strategis global.</p>
-                    <a class="btn btn-hero btn-hero-primary mt-3" href="#kontak">Mulai Kolaborasi</a>
-                </div>
-                <div class="col-lg-7 anim">
-                    <div class="row g-4">
-                        <div class="col-md-6">
-                            <div class="p-4 rounded-4" style="background:rgba(255,255,255,.07);border:1px solid rgba(212,168,67,.22);">
-                                <i class="bi bi-bullseye" style="font-size:1.8rem;color:var(--gold-500);display:block;margin-bottom:.75rem;"></i>
-                                <h5 style="color:#fff;font-family:'Playfair Display',serif;">Misi</h5>
-                                <p style="color:rgba(255,255,255,.68);font-size:.93rem;line-height:1.75;">Mengembangkan, memproduksi, dan memelihara sistem pertahanan terpadu; mengembangkan ekosistem industri nasional; dan memastikan pasokan logistik pertahanan yang andal, aman, dan berkelanjutan.</p>
+            <div class="vision-box anim">
+                <div class="row align-items-center">
+                    <div class="col-lg-5 mb-4 mb-lg-0">
+                        <div class="section-eyebrow" style="color:var(--gold-500);">Visi &amp; Misi</div>
+                        <h2>Visi</h2>
+                        <p>Menjadi konsultan teknologi terpercaya di Indonesia yang memberdayakan bisnis dengan solusi digital yang aman, efisien, dan berkelanjutan.</p>
+                        <hr style="border-color:rgba(212,168,67,.3);margin:1.5rem 0;">
+                        <h2>Misi</h2>
+                        <ul style="list-style:none;padding:0;line-height:2.2;">
+                            <li><i class="bi bi-check-circle-fill me-2" style="color:var(--gold-500);"></i>Memberikan solusi teknologi yang andal dan teruji</li>
+                            <li><i class="bi bi-check-circle-fill me-2" style="color:var(--gold-500);"></i>Membangun ekosistem digital yang aman di Indonesia</li>
+                            <li><i class="bi bi-check-circle-fill me-2" style="color:var(--gold-500);"></i>Mendidik dan mengotomasi proses bisnis di setiap klien</li>
+                            <li><i class="bi bi-check-circle-fill me-2" style="color:var(--gold-500);"></i>Mendukung inovasi dan kualitas tenaga kerja digital lokal</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="row g-4 text-center">
+                            <div class="col-6 col-md-4">
+                                <div class="result-stat"><div class="num">50+</div><div class="lbl">Proyek Selesai</div></div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-4 rounded-4" style="background:rgba(255,255,255,.07);border:1px solid rgba(212,168,67,.22);">
-                                <i class="bi bi-lightbulb" style="font-size:1.8rem;color:var(--gold-500);display:block;margin-bottom:.75rem;"></i>
-                                <h5 style="color:#fff;font-family:'Playfair Display',serif;">Nilai Inti</h5>
-                                <ul style="color:rgba(255,255,255,.68);font-size:.93rem;line-height:1.75;list-style:none;padding:0;">
-                                    <li style="padding:.35rem 0;">&#9989; Kedaulatan &amp; Kemandirian</li>
-                                    <li style="padding:.35rem 0;">&#9989; Keunggulan Teknis</li>
-                                    <li style="padding:.35rem 0;">&#9989; Integritas &amp; Transparansi</li>
-                                    <li style="padding:.35rem 0;">&#9989; Kolaborasi Internasional</li>
-                                </ul>
+                            <div class="col-6 col-md-4">
+                                <div class="result-stat"><div class="num">30+</div><div class="lbl">Klien Aktif</div></div>
                             </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-4 rounded-4" style="background:rgba(255,255,255,.07);border:1px solid rgba(212,168,67,.22);">
-                                <i class="bi bi-heart" style="font-size:1.8rem;color:var(--gold-500);display:block;margin-bottom:.75rem;"></i>
-                                <h5 style="color:#fff;font-family:'Playfair Display',serif;">Visi</h5>
-                                <p style="color:rgba(255,255,255,.68);font-size:.93rem;line-height:1.75;">Menjadi pusat industri pertahanan terdepan di Timur Tengah — inovatif, berkelanjutan, dan menjadi aset strategis bagi keamanan regional.</p>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="p-4 rounded-4" style="background:rgba(255,255,255,.07);border:1px solid rgba(212,168,67,.22);">
-                                <i class="bi bi-flag" style="font-size:1.8rem;color:var(--gold-500);display:block;margin-bottom:.75rem;"></i>
-                                <h5 style="color:#fff;font-family:'Playfair Display',serif;">Tujuan Jangka Pendek</h5>
-                                <p style="color:rgba(255,255,255,.68);font-size:.93rem;line-height:1.75;">Meningkatkan jumlah proyek strategis; meningkatkan kompetensi SDM dengan kerja sama internasional; dan memperkuat ekosistem industri pertahanan nasional.</p>
+                            <div class="col-6 col-md-4">
+                                <div class="result-stat"><div class="num">99%</div><div class="lbl">Tingkat Kepuasan</div></div>
                             </div>
                         </div>
                     </div>
@@ -470,31 +444,38 @@
         </div>
     </section>
 
-    <!-- SEJARAH & KEPEMIMPINAN -->
-    <section id="pengembangan" class="section-alt">
+    <!-- HASIL KERJA -->
+    <section id="pengembangan" style="background:var(--prussia-50);">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto anim">
-                    <div class="section-eyebrow mx-auto">Pengembangan</div>
-                    <h2 class="section-title">Perjalanan &amp; Kebijakan</h2>
-                    <div class="divider-gold mx-auto"></div>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center anim">
+                    <div class="section-eyebrow mx-auto">Pencapaian</div>
+                    <h2 class="section-title">Hasil Kerja<br>yang Berkesinambungan</h2>
                 </div>
             </div>
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 anim">
-                    <div class="value-card h-100">
-                        <div class="value-icon mb-3"><i class="bi bi-book"></i></div>
-                        <h4>Sejarah &amp; Modal Dasar</h4>
-                        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.75;">Berdasarkan Keputusan Menteri Pertahanan Arab Saudi No. 2014/35, OIMS dirintis untuk menjadi tulang punggung kemandirian industri pertahanan. Modal awal dibentuk dari perpaduan saham pemerintah, kontribusi swasta nasional, dan kerja sama internasional yang mengalirkan teknologi produksi berkualitas.</p>
-                        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.75;">Hingga saat ini, total aset OIMS mencapai lebih dari USD 40 miliar dengan lebih dari 250 proyek strategis yang sedang beroperasi di seluruh wilayah Arab Saudi, mencakup pabrik-pabrik pemurni logam, pengolahan polimer, perakitan sistem elektronika, dan tes balistik.</p>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="result-stat anim">
+                        <div class="num">50+</div>
+                        <div class="lbl">Total Proyek<br>untuk Klien</div>
                     </div>
                 </div>
-                <div class="col-lg-6 anim">
-                    <div class="value-card h-100">
-                        <div class="value-icon mb-3"><i class="bi bi-people-gear"></i></div>
-                        <h4>Tim &amp; Struktur Kepemimpinan</h4>
-                        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.75;">Dipimpin oleh CEO HRH Prince Khaled bin Salman Al Saud, tim kepemimpinan OIMS terdiri dari mantan pejabat tinggi pertahanan, ahli strategi militer, dan engineers sains komputer dengan pelatihan khusus AS dan Eropa.</p>
-                        <p style="color:var(--text-mid);font-size:.95rem;line-height:1.75;">Dewan Penasihat mencakup mantan Menteri Pertahanan, mantan komandan NATO, dan tokoh bisnis global. Dewan Pengawas — yang menangani keuangan, audit, dan kepatuhan — memastikan tata kelola yang transparan dan akuntabilitas penuh.</p>
+                <div class="col-lg-3 col-md-6">
+                    <div class="result-stat anim">
+                        <div class="num">8+</div>
+                        <div class="lbl">Tahun<br>Pengalaman</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="result-stat anim">
+                        <div class="num">30+</div>
+                        <div class="lbl">Klien<br>di Berbagai Sektor</div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="result-stat anim">
+                        <div class="num">99%</div>
+                        <div class="lbl">Tingkat<br>Kepuasan Klien</div>
                     </div>
                 </div>
             </div>
@@ -502,118 +483,103 @@
     </section>
 
     <!-- TIM -->
-    <section id="tim">
+    <section id="tim" style="background:#fff;">
         <div class="container">
-            <div class="row text-center mb-5">
-                <div class="col-lg-8 mx-auto anim">
-                    <div class="section-eyebrow mx-auto">Personel &amp; Tim</div>
-                    <h2 class="section-title">Tim Ahli OIMS</h2>
-                    <div class="divider-gold mx-auto"></div>
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center anim">
+                    <div class="section-eyebrow mx-auto">Tim Kami</div>
+                    <h2 class="section-title">Personel<br>&amp; Tim Sixer0</h2>
+                    <p class="text-muted">Tim profesional dengan keahlian di bidang rekayasaan perangkat lunak, keamanan siber, manejemen proyek, dan desain sistem yang terpadu.</p>
                 </div>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 anim">
-                    <div class="text-center p-4 rounded-4" style="background:#fff;border:1px solid var(--prussia-100);box-shadow:0 4px 20px rgba(18,28,44,.06);">
-                        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--prussia-600),var(--prussia-400));margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
-                            <i class="bi bi-person-fill" style="font-size:2rem;color:var(--gold-500)"></i>
-                        </div>
-                        <h5 style="color:var(--prussia-700);margin-bottom:.2rem;">HRH Prince Khaled bin Salman Al Saud</h5>
-                        <small style="color:var(--gold-600);font-weight:600;">Ketua Umum &amp; CEO</small>
-                        <p style="color:var(--text-mid);font-size:.85rem;line-height:1.6;margin-top:.75rem;">Putra Menteri Pertahanan KSA, menjembatani visi "Vision 2030" dengan eksekusi strategis OIMS.</p>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card anim">
+                        <div class="team-avatar"><i class="bi bi-person"></i></div>
+                        <h6>Arsitek Sistem</h6>
+                        <p class="team-role">Perencanaan &amp; Desain Arsitektur</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 anim">
-                    <div class="text-center p-4 rounded-4" style="background:#fff;border:1px solid var(--prussia-100);box-shadow:0 4px 20px rgba(18,28,44,.06);">
-                        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--prussia-600),var(--prussia-400));margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
-                            <i class="bi bi-person-fill" style="font-size:2rem;color:var(--gold-500)"></i>
-                        </div>
-                        <h5 style="color:var(--prussia-700);margin-bottom:.2rem;">Eng. Ahmed Al-Mutairi</h5>
-                        <small style="color:var(--gold-600);font-weight:600;">Direktur Teknik &amp; Teknologi</small>
-                        <p style="color:var(--text-mid);font-size:.85rem;line-height:1.6;margin-top:.75rem;">Senior researcher dengan 18 tahun pengalaman di industri pertahanan dan aerospace.</p>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card anim">
+                        <div class="team-avatar"><i class="bi bi-person"></i></div>
+                        <h6>Lead Developer</h6>
+                        <p class="team-role">Pengembangan &amp; Code Review</p>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 anim">
-                    <div class="text-center p-4 rounded-4" style="background:#fff;border:1px solid var(--prussia-100);box-shadow:0 4px 20px rgba(18,28,44,.06);">
-                        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--prussia-600),var(--prussia-400));margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
-                            <i class="bi bi-person-fill" style="font-size:2rem;color:var(--gold-500)"></i>
-                        </div>
-                        <h5 style="color:var(--prussia-700);margin-bottom:.2rem;">Dr. Sarah Al-Rashoud</h5>
-                        <small style="color:var(--gold-600);font-weight:600;">Direktur Kebijakan &amp; Hub. Internasional</small>
-                        <p style="color:var(--text-mid);font-size:.85rem;line-height:1.6;margin-top:.75rem;">Mantan diplomat dan ahli hubungan internasional, memimpin perundingan dengan mitra global.</p>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 anim">
-                    <div class="text-center p-4 rounded-4" style="background:#fff;border:1px solid var(--prussia-100);box-shadow:0 4px 20px rgba(18,28,44,.06);">
-                        <div style="width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--prussia-600),var(--prussia-400));margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;">
-                            <i class="bi bi-person-fill" style="font-size:2rem;color:var(--gold-500)"></i>
-                        </div>
-                        <h5 style="color:var(--prussia-700);margin-bottom:.2rem;">Lt. Col. Omar Al-Fahad (Ret.)</h5>
-                        <small style="color:var(--gold-600);font-weight:600;">Direktur Operasional &amp; Logistik</small>
-                        <p style="color:var(--text-mid);font-size:.85rem;line-height:1.6;margin-top:.75rem;">Veteran 20 tahun Royal Saudi Air Force, bertanggung jawab atas keseluruhan rantai pasok.</p>
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <div class="team-card anim">
+                        <div class="team-avatar"><i class="bi bi-person"></i></div>
+                        <h6>Analis Keamanan</h6>
+                        <p class="team-role">Security Audit &amp; Penetration Testing</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- HUBUNGI KAMI -->
-    <section id="kontak" class="contact-section">
+    <!-- KONTAK -->
+    <section id="kontak" class="contact-section" style="background:var(--prussia-50);">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-5 mb-5 mb-lg-0 anim">
-                    <div class="section-eyebrow" style="color:var(--gold-500);">Kontak</div>
-                    <h2 style="color:#fff;font-size:2.5rem;margin-bottom:1rem;">Silakan Hubungi Kami</h2>
-                    <div class="divider-gold"></div>
-                    <p style="color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:2rem;">Apakah Anda adalah mitra potensial, reporter, atau peneliti? Tim OIMS siap menjawab setiap pertanyaan Anda dalam 2x24 jam kerja.</p>
-                    <div class="d-flex flex-column gap-3">
-                        <div class="d-flex align-items-center gap-3">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-7 text-center anim">
+                    <div class="section-eyebrow mx-auto" style="color:var(--gold-500);">Kontak</div>
+                    <h2 class="section-title">Mari Berdiskusi</h2>
+                    <p class="text-muted">Sampaikan kebutuhan Anda, tim kami dengan cepat mengirimkan penawaran yang transparan dan sesuai anggaran.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="anim">
+                        <div class="d-flex align-items-center mb-4">
                             <div style="width:46px;height:46px;border-radius:12px;background:rgba(212,168,67,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-geo-alt" style="color:var(--gold-500);font-size:1.1rem;"></i></div>
-                            <div><small style="color:rgba(255,255,255,.5);font-size:.78rem;">Kantor Pusat</small><div style="color:#fff;font-weight:500;">Olaya Street, Riyadh, Saudi Arabia</div></div>
+                            <div class="ms-3"><strong>Kantor</strong><br><small class="text-muted">Tangerang, Indonesia</small></div>
                         </div>
-                        <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center mb-4">
                             <div style="width:46px;height:46px;border-radius:12px;background:rgba(212,168,67,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-telephone" style="color:var(--gold-500);font-size:1.1rem;"></i></div>
-                            <div><small style="color:rgba(255,255,255,.5);font-size:.78rem;">Telepon</small><div style="color:#fff;font-weight:500;">+966 11 463 3000</div></div>
+                            <div class="ms-3"><strong>Telepon / WA</strong><br><small class="text-muted">+62 812-3456-7890</small></div>
                         </div>
-                        <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center mb-4">
                             <div style="width:46px;height:46px;border-radius:12px;background:rgba(212,168,67,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-envelope" style="color:var(--gold-500);font-size:1.1rem;"></i></div>
-                            <div><small style="color:rgba(255,255,255,.5);font-size:.78rem;">Email</small><div style="color:#fff;font-weight:500;">info@oims.gov.sa</div></div>
+                            <div class="ms-3"><strong>Email</strong><br><small class="text-muted">info@sixer0-bk.my.id</small></div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-7 anim">
-                    <div class="contact-form-card">
-                        <form method="POST" action="{{ route('contact.submit') }}" id="contactForm">
+                <div class="col-lg-8">
+                    <div class="contact-form-card anim">
+                        <form id="contactForm" method="POST" action="{{ route('contact.submit') }}">
                             @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label">Nama Lengkap</label>
-                                    <input type="text" name="name" class="form-control" placeholder="Masukkan nama Anda" required>
+                                    <label class="form-label">Nama Lengkap *</label>
+                                    <input type="text" name="name" class="form-control" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" name="email" class="form-control" placeholder="nama@perusahaan.com" required>
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">Subjek</label>
-                                    <input type="text" name="subject" class="form-control" placeholder="Subjek pesan Anda">
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">Pesan</label>
-                                    <textarea name="message" class="form-control" rows="5" placeholder="Tulis pesan atau pertanyaan Anda di sini..." required></textarea>
+                                    <label class="form-label">Email *</label>
+                                    <input type="email" name="email" class="form-control" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label">Kode Keamanan</label>
-                                    <div class="d-flex gap-2 align-items-center">
-                                        <div class="form-control text-center fw-bold" style="min-width:80px;background:var(--prussia-50);"><span id="captcha-question">{{ $captcha_question }} = ?</span></div>
-                                        <input type="hidden" id="captcha-hash" name="captcha_hash" value="{{ $captcha_hash }}">
-                                        <input type="text" name="captcha" class="form-control" placeholder="Hasil" maxlength="3" style="max-width:90px;">
+                                    <label class="form-label">Perusahaan</label>
+                                    <input type="text" name="company" class="form-control" placeholder="Opsional">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Telepon</label>
+                                    <input type="text" name="phone" class="form-control" placeholder="Opsional">
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label">Pesan *</label>
+                                    <textarea name="message" class="form-control" rows="4" required></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label">Verifikasi</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light" id="captcha-question">{{ $captcha_question }} = ?</span>
+                                        <input type="hidden" name="captcha_hash" id="captcha-hash" value="{{ $captcha_hash }}">
+                                        <input type="number" name="captcha_answer" class="form-control" placeholder="Jawaban" required>
                                     </div>
                                 </div>
-                                <div class="col-md-6 d-flex align-items-end">
-                                    <button type="submit" class="btn btn-send w-100"><i class="bi bi-send me-2"></i>Kirim Pesan</button>
-                                </div>
-                                <div class="col-12">
-                                    <small style="color:var(--text-mid);"><i class="bi bi-shield-lock me-1"></i>Data Anda dilindungi dan tidak akan dibagikan kepada pihak ketiga.</small>
+                                <div class="col-12 mt-3">
+                                    <button type="submit" class="btn btn-submit"><i class="bi bi-send me-2"></i>Kirim Pesan</button>
                                 </div>
                             </div>
                         </form>
@@ -626,32 +592,32 @@
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-4 col-md-6">
-                    <h5 style="font-family:'Playfair Display',serif;"><i class="bi bi-shield-check me-2"></i>OIMS</h5>
-                    <p style="color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:1.2rem;">Organisasi Industri Militer Saudi — pilar pertahanan nasional Arab Saudi yang didirikan pada tahun 2014 untuk mewujudkan kemandirian industri pertahanan sepenuhnya.</p>
-                    <div class="footer-social">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5 class="footer-brand"><i class="bi bi-shield-check me-2"></i>Sixer0</h5>
+                    <p style="color:rgba(255,255,255,.6);line-height:1.8;margin-top:.7rem;">Konsultan IT dan kreatif berbasis Indonesia, menghadirkan solusi digital yang aman, andal, dan berkelanjutan untuk bisnis modern.</p>
+                    <div class="footer-social mt-3">
                         <a href="#" title="Twitter / X"><i class="bi bi-twitter-x"></i></a>
                         <a href="#" title="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" title="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" title="GitHub"><i class="bi bi-github"></i></a>
                         <a href="#" title="Instagram"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-6">
                     <h6>Navigasi</h6>
-                    <ul class="list-unstyled" style="line-height:2;">
+                    <ul class="list-unstyled" style="line-height:2.2;">
                         <li><a href="#tentang">Tentang</a></li>
                         <li><a href="#layanan">Layanan</a></li>
-                        <li><a href="#keunggulan">Keunggulan</a></li>
                         <li><a href="#proyek">Proyek</a></li>
                         <li><a href="#visi">Visi &amp; Misi</a></li>
+                        <li><a href="#tim">Tim Kami</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h6>Informasi</h6>
-                    <ul class="list-unstyled" style="line-height:2;">
+                    <ul class="list-unstyled" style="line-height:2.2;">
                         <li><a href="#visi">Visi &amp; Misi</a></li>
-                        <li><a href="#pengembangan">Sejarah &amp; Catatan</a></li>
+                        <li><a href="#pengembangan">Pencapaian</a></li>
                         <li><a href="#tim">Tim Kami</a></li>
                         <li><a href="#kontak">Hubungi Kami</a></li>
                         <li><a href="/privacy">Kebijakan Privasi</a></li>
@@ -659,29 +625,28 @@
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h6>Catatan &amp; Visi</h6>
-                    <ul class="list-unstyled" style="line-height:2;">
-                        <li><a href="#visi">Pedoman Visi</a></li>
-                        <li><a href="#pengembangan">Catatan Pembuat</a></li>
-                        <li><a href="#keunggulan">Peta Emosi</a></li>
-                        <li><a href="#about">Resume Nilai</a></li>
-                        <li><a href="#kontak">Kontak Darurat</a></li>
+                    <h6>Kantor</h6>
+                    <ul class="list-unstyled" style="line-height:2.2;">
+                        <li>Tangerang, Indonesia</li>
+                        <li><a href="mailto:info@sixer0-bk.my.id">info@sixer0-bk.my.id</a></li>
+                        <li><a href="https://sixer0-bk.my.id">sixer0-bk.my.id</a></li>
+                        <li><a href="https://github.com/sixer0">github.com/sixer0</a></li>
                     </ul>
                 </div>
             </div>
             <hr class="my-4" style="border-color:rgba(255,255,255,.1);">
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
-                <p class="mb-0" style="color:rgba(255,255,255,.45);font-size:.85rem;">&copy; {{ date('Y') }} Organisasi Industri Militer Saudi. Hak Cipta Dilindungi.</p>
-                <div style="color:rgba(255,255,255,.4);font-size:.8rem;">Made with <i class="bi bi-heart-fill" style="color:var(--gold-500);"></i> in Riyadh</div>
+                <p class="mb-0" style="color:rgba(255,255,255,.45);font-size:.85rem;">&copy; {{ date('Y') }} Sixer0. Hak Cipta Dilindungi.</p>
+                <div style="color:rgba(255,255,255,.4);font-size:.8rem;">Rancang &amp; Build by <a href="https://sixer0-bk.my.id" style="color:var(--gold-500);">Sixer0</a></div>
             </div>
             <div class="text-end mt-3">
-                <a href="#admin-login" id="admin-link" style="color:rgba(212,168,67,.3);font-size:.78rem;transition:color .2s;" onmouseover="this.style.color='rgba(212,168,67,.8)'" onmouseout="this.style.color='rgba(212,168,67,.3)'">Admin ▸</a>
+                <a href="#admin-logx" id="admin-link" style="color:rgba(212,168,67,.3);font-size:.78rem;transition:color .2s;" onmouseover="this.style.color='rgba(212,168,67,.8)'" onmouseout="this.style.color='rgba(212,168,67,.3)'">Admin ▸</a>
             </div>
         </div>
     </footer>
 
     @if(app('env') === 'local' || config('app.debug'))
-    <div class="dev-badge"><i class="bi bi-bug-fill me-1"></i> DEV — {{ config('app.name','OIMS') }}</div>
+    <div class="dev-badge"><i class="bi bi-bug-fill me-1"></i> DEV — {{ config('app.name','Sixer0') }}</div>
     @endif
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -723,7 +688,7 @@
         // Admin login modal toggle
         document.getElementById('admin-link').addEventListener('click', function(e) {
             e.preventDefault();
-            const mx = document.getElementById('admin-login');
+            const mx = document.getElementById('admin-logx');
             if (mx.style.visibility === 'hidden') { mx.style.opacity='0'; mx.style.visibility='visible'; requestAnimationFrame(()=>requestAnimationFrame(()=>{ mx.style.opacity='1'; })); }
             else { mx.style.opacity='0'; setTimeout(()=>{ mx.style.visibility='hidden'; }, 500); }
         });

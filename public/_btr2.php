@@ -1,0 +1,26 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+$lf = __DIR__.'/_btr.txt';
+require_once __DIR__.'/vendor/autoload.php';
+require_once __DIR__.'/bootstrap/app.php';
+$app = \Illuminate\Container\Container::getInstance();
+$k = $app->make(\Illuminate\Contracts\Http\Kernel::class);
+file_put_contents($lf, "KERNEL:" . get_class($k) . "\n");
+$ref = new \ReflectionClass($k);
+$mwp = $ref->getProperty('middleware');
+$mwp->setAccessible(true);
+file_put_contents($lf, "MW:" . count($mwp->getValue($k)) . "\n", FILE_APPEND);
+$rp = $ref->getProperty('router');
+$rp->setAccessible(true);
+$router = $rp->getValue($k);
+file_put_contents($lf, "ROUTER:" . get_class($router) . "\n", FILE_APPEND);
+file_put_contents($lf, "MW_GROUPS:" . implode(",", array_keys($router->getMiddlewareGroups())) . "\n", FILE_APPEND);
+file_put_contents($lf, "BOOTSTRAP_START\n", FILE_APPEND);
+$k->bootstrap();
+file_put_contents($lf, "BOOTSTRAP_END\n", FILE_APPEND);
+$rg = $router->getMiddlewareGroups();
+file_put_contents($lf, "MWG_AFTER:" . implode(",", array_keys($rg)) . "\n", FILE_APPEND);
+$mw1 = $mwp->getValue($k);
+file_put_contents($lf, "MW_AFTER:" . count($mw1) . "\n", FILE_APPEND);
+file_put_contents($lf, "DONE\n", FILE_APPEND);

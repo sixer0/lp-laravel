@@ -3,51 +3,48 @@
         <div class="col-lg-8">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-5">
-                    <h1 class="fw-bold mb-4">Privacy Policy</h1>
-                    
-                    <h5 class="mt-4">1. Data Protection</h5>
+                    <h1 class="fw-bold mb-4">Kebijakan Privasi</h1>
+
+                    <p class="text-muted mb-4">Terakhir diperbarui: {{ date('F j, Y') }}</p>
+
+                    <h5 class="mt-4">1. Informasi yang Kami Kumpulkan</h5>
                     <p>
-                        We take the protection of your personal data very seriously. We treat your 
-                        personal information confidentially and in accordance with the statutory data 
-                        protection regulations and this privacy policy.
+                        Kami mengumpulkan informasi yang Anda berikan secara langsung, seperti nama, email, dan nomor telepon ketika Anda mengisi formulir kontak di situs ini.
                     </p>
 
-                    <h5 class="mt-4">2. Contact Form</h5>
+                    <h5 class="mt-4">2. Penggunaan Informasi</h5>
                     <p>
-                        When you submit a contact form, we collect and process the following data:
+                        Informasi yang dikumpulkan digunakan hanya untuk menanggapi pertanyaan dan permintaan Anda. Kami tidak menjual atau menyewakan data pribadi Anda kepada pihak ketiga.
+                    </p>
+
+                    <h5 class="mt-4">3. Formulir Kontak</h5>
+                    <p>
+                        Saat mengirim pesan melalui formulir kontak, kami mengumpulkan dan memproses:
                     </p>
                     <ul>
-                        <li>Name</li>
-                        <li>Email Address</li>
-                        <li>Phone Number</li>
-                        <li>Company (optional)</li>
-                        <li>Your Message</li>
+                        <li>Nama lengkap</li>
+                        <li>Alamat email</li>
+                        <li>Nomor telepon</li>
+                        <li>Nama perusahaan (opsional)</li>
+                        <li>Isi pesan</li>
                     </ul>
-
-                    <h5 class="mt-4">3. Data Usage</h5>
-                    <p>
-                        Your data will be used exclusively for processing your inquiry and will not 
-                        be passed on to third parties without your consent.
-                    </p>
 
                     <h5 class="mt-4">4. Cookies</h5>
                     <p>
-                        This website uses cookies to enhance user experience. You can deactivate 
-                        cookies in your browser settings at any time.
+                        Situs ini menggunakan cookie untuk meningkatkan pengalaman pengguna. Anda dapat menonaktifkan cookie kapan saja melalui pengaturan browser Anda.
                     </p>
 
-                    <h5 class="mt-4">5. Your Rights</h5>
+                    <h5 class="mt-4">5. Hak Anda</h5>
                     <p>
-                        You have the right to request information about your stored personal data, 
-                        to have it corrected, blocked or deleted at any time.
+                        Anda berhak untuk mengetahui data pribadi apa saja yang kami simpan, meminta perbaikannya, pemblokiran, atau penghapusan kapan saja dengan menghubungi kami di alamat email yang tercantum.
                     </p>
 
-                    <p class="text-muted mt-5">
-                        <small>Last updated: {{ date('F j, Y') }}</small>
+                    <h5 class="mt-4">6. Perubahan Kebijakan</h5>
+                    <p>
+                        Kebijakan privasi ini dapat diperbarui sewaktu-waktu. Setiap perubahan akan ditampilkan di halaman ini dengan tanggal pembaruan yang baru.
                     </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
