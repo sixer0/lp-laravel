@@ -76,4 +76,9 @@ return [
     'stubs' => [
         // Custom stubs if needed
     ],
+
+    // Blade facade aliases
+    'aliases' => [
+        'Str' => Illuminate\Support\Facades\Str::class,
+    ],
 ];

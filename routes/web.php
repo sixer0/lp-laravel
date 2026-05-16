@@ -9,6 +9,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Contact form submission
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
+Route::get('/contact/captcha', [ContactController::class, 'captcha'])->name('contact.captcha');
 
 // Legal & Privacy pages
 Route::view('/legal-notice', 'legal.notice')->name('legal');

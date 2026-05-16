@@ -6,7 +6,7 @@ use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class HomeController extends Controller
+class HomeController extends BaseController
 {
     /**
      * Landing page with Bootstrap layout
@@ -23,7 +23,13 @@ class HomeController extends Controller
             $projects = $this->loadProjectsFromXml();
         }
 
-        return view('layouts.guest', compact('projects'));
+        // Captcha defaults (JS will hydrate from /contact/captcha)
+        $a = random_int(1, 9);
+        $b = random_int(1, 9);
+        return view('layouts.guest', compact('projects') + [
+            'captcha_question' => "$a + $b",
+            'captcha_hash' => md5((string)($a + $b)),
+        ]);
     }
 
     /**
@@ -65,7 +71,7 @@ class HomeController extends Controller
                     'slug' => strtolower(str_replace([' ', '-'], '-', (string) $item->title)),
                     'description' => strip_tags((string) $item->description) ?: 'No description available.',
                     'image' => (string) $item->enclosure['url'],
-                    'link' => (string) $item->link,
+                    'project_url' => (string) $item->link,
                 ];
             });
         } catch (\Exception $e) {

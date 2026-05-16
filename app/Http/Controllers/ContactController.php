@@ -7,9 +7,10 @@ use Illuminate\Support\Str;
 use App\Models\ContactSubmission;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\ValidationException;
 
-class ContactController extends Controller
+class ContactController extends BaseController
 {
     /**
      * Handle contact form submission
@@ -34,14 +35,17 @@ class ContactController extends Controller
                 'captcha_hash' => 'required|string',
             ]);
 
-            // Verify captcha
-            $hash = $request->input('captcha_hash');
-            $answer = $request->input('captcha');
+            // Verify captcha against session
+            $answer  = (int) $request->input('captcha');
+            $session = Session::get('captcha_answer');
 
-            if (!hash_equals($hash, md5((string) $answer))) {
-                throw ValidationException::withMessages([
+            if ($session === null || $answer !== (int) $session) {
+                ValidationException::withMessages([
                     'captcha' => ['Incorrect answer. Please try again.'],
                 ]);
+            }
+
+            Session::forget('captcha_answer');
             }
 
             // Store submission
@@ -83,5 +87,21 @@ class ContactController extends Controller
                 ->withInput()
                 ->with('error', 'Something went wrong. Please try again later.');
         }
+    }
+
+    /**
+     * Generate and return a new captcha (session-based)
+     */
+    public function captcha()
+    {
+        $a = random_int(1, 9);
+        $b = random_int(1, 9);
+        $answer = $a + $b;
+        Session::put('captcha_answer', $answer);
+
+        return response()->json([
+            'question' => "$a + $b",
+            'hash'     => md5((string) $answer),
+        ]);
     }
 }

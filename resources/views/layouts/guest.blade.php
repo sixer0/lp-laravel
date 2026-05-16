@@ -611,9 +611,9 @@
                         <div class="card-body p-4">
                             <h5 class="card-title fw-bold project-title">{{ $project->name }}</h5>
                             <p class="card-text text-muted project-desc">
-                                {{ Str::limit($project->description ?? $project->introduction ?? 'No description', 100) }}
+                                {{ Str::limit($project->description ?? 'No description available.', 100) }}
                             </p>
-                            <a href="{{ $project->link ?? '#' }}" class="btn btn-outline-primary btn-sm">
+                            <a href="{{ route('project', $project->slug) }}" class="btn btn-outline-primary btn-sm">
                                 View Project <i class="bi bi-arrow-right ms-1"></i>
                             </a>
                         </div>
@@ -732,10 +732,10 @@
                             </div>
                             <div class="mb-4">
                                 <div class="d-flex align-items-center">
-                                    <span class="text-muted me-2" id="captcha-question">5 + 3 = ?</span>
+                                    <span class="text-muted me-2" id="captcha-question">{{ $captcha_question ?? '5 + 3' }}</span>
                                     <input type="text" name="captcha" class="form-control w-auto" 
                                            placeholder="Your answer" style="width: 150px;" required>
-                                    <input type="hidden" name="captcha_hash" value="{{ md5('8') }}">
+                                    <input type="hidden" name="captcha_hash" id="captcha-hash" value="{{ $captcha_hash ?? md5(8) }}">
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary-custom btn-lg w-100">
@@ -861,11 +861,15 @@
             });
         });
 
-        // Captcha refresh
-        let a = Math.floor(Math.random() * 10) + 1;
-        let b = Math.floor(Math.random() * 10) + 1;
-        document.getElementById('captcha-question').textContent = `${a} + ${b} = ?`;
-        document.querySelector('input[name="captcha_hash"]').value = md5(a + b);
+        // captcha: fetch a fresh question from the server
+        async function refreshCaptcha() {
+            try {
+                const r = await fetch('{{ route('contact.captcha') }}'); const d = await r.json();
+                document.getElementById('captcha-question').textContent = d.question + ' = ?';
+                document.getElementById('captcha-hash').value = d.hash;
+            } catch (_) { /* keep defaults on error */ }
+        }
+        refreshCaptcha();
     </script>
 
     @if(app('env') === 'local' || config('app.debug'))
