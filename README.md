@@ -59,7 +59,7 @@ lp-laravel/
 
 ```bash
 # 1. Clone / extract to server
-cd /public_html/devlp/
+cd landing.sixer0-bk.my.id/
 tar xzf lp-laravel.tar.gz
 
 # 2. Install dependencies (if SSH/Terminal available)
@@ -169,7 +169,7 @@ curl -sS https://getcomposer.org/installer | php
 
 ### Full Deploy
 ```bash
-cd /public_html/devlp/
+cd landing.sixer0-bk.my.id/
 tar xzf lp-laravel.tar.gz
 
 # Install Composer deps
