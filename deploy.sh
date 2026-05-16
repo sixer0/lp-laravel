@@ -5,11 +5,14 @@
 set -e
 
 echo "=========================================="
-echo "  Laravel 11.51 Deployment - Sixer0.devlp"
+echo "  Laravel 11.51 Deployment - landing.sixer0-bk.my.id"
 echo "=========================================="
 echo ""
 
-cd /public_html/devlp/ || { echo "ERROR: Cannot cd to /public_html/devlp/"; exit 1; }
+
+cd /public_html/landing.sixer0-bk.my.id/ || { echo "ERROR: Cannot cd to /public_html/landing.sixer0-bk.my.id/"; exit 1; }
+
+BASE_DIR="/public_html/landing.sixer0-bk.my.id"
 
 # 1. PHP Version Check
 echo "[1/7] Checking PHP version..."
@@ -62,7 +65,7 @@ echo ""
 echo "PHP:      $(php -v | head -1)"
 echo "Laravel:  $(php artisan --version)"
 echo "DB:       $(grep DB_DATABASE .env | cut -d= -f2)"
-echo "URL:      http://devlp.sixer0-bk.my.id"
+echo "URL:      https://landing.sixer0-bk.my.id"
 echo ""
 echo "Routes:"
 php artisan route:list --columns=uri
