@@ -189,6 +189,7 @@
                     <li class="nav-item"><a class="nav-link" href="#visi">Visi &amp; Misi</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tim">Tim</a></li>
                     <li class="nav-item"><a class="nav-link btn btn-hero-primary text-white ms-2 px-3 py-1" href="#kontak">Mari Bicara</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin/login" style="font-size:.8rem;opacity:.75;"><i class="bi bi-terminal me-1"></i>Login CMS</a></li>
                 </ul>
             </div>
         </div>

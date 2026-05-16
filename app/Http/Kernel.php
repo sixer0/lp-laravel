@@ -3,9 +3,11 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use App\Http\Middleware\AdminMiddleware;
 
 /**
- * Server-side Kernel — defines the web middleware group.
+ * Server-side Kernel — defines route middleware aliases and the web
+ * middleware group.
  *
  * The bootstrap Kernel class constructor calls syncMiddlewareToRouter()
  * immediately on construction, so any $middlewareGroups set here will
@@ -13,6 +15,15 @@ use Illuminate\Foundation\Http\Kernel as HttpKernel;
  */
 class Kernel extends HttpKernel
 {
+    /**
+     * The application's route middleware aliases.
+     *
+     * @var array<string, class-string|string>
+     */
+    protected $routeMiddleware = [
+        'session.admin' => AdminMiddleware::class,
+    ];
+
     /**
      * The application's route middleware groups.
      *
