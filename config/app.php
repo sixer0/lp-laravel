@@ -1,84 +1,74 @@
 <?php
 
-use App\Models\Project;
-
 return [
-    /*
-    |--------------------------------------------------------------------------
-    | Application Name
-    |--------------------------------------------------------------------------
-    */
-    'name' => env('APP_NAME', 'Sixer0 Portfolio'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application Environment
-    |--------------------------------------------------------------------------
-    */
+    'name' => env('APP_NAME', 'Laravel'),
+
     'env' => env('APP_ENV', 'production'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application Debug Mode
-    |--------------------------------------------------------------------------
-    */
     'debug' => (bool) env('APP_DEBUG', false),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application URL
-    |--------------------------------------------------------------------------
-    */
     'url' => env('APP_URL', 'https://landing.sixer0-bk.my.id'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application Timezone
-    |--------------------------------------------------------------------------
-    */
+    'asset_url' => env('ASSET_URL', '/'),
+
     'timezone' => 'Asia/Jakarta',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application Locale
-    |--------------------------------------------------------------------------
-    */
     'locale' => 'en',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Application Fallback Locale
-    |--------------------------------------------------------------------------
-    */
     'fallback_locale' => 'en',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Encryption Key
-    |--------------------------------------------------------------------------
-    */
-    'key' => env('APP_KEY'),
+    'faker_locale' => 'en_US',
 
     'cipher' => 'AES-256-CBC',
 
-    /*
-    |--------------------------------------------------------------------------
-    | Trusted Proxies
-    |--------------------------------------------------------------------------
-    */
-    'trusted_proxies' => null,
+    'providers' => [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Custom Stub Directory
-    |--------------------------------------------------------------------------
-    */
-    'stubs' => [
-        // Custom stubs if needed
+        /*
+         * Laravel Framework Service Providers...
+         */
+        Illuminate\Foundation\Providers\FoundationServiceProvider::class,
+        Illuminate\Auth\AuthServiceProvider::class,
+        Illuminate\Broadcasting\BroadcastServiceProvider::class,
+        Illuminate\Bus\BusServiceProvider::class,
+        Illuminate\Cache\CacheServiceProvider::class,
+        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
+        Illuminate\Cookie\CookieServiceProvider::class,
+        Illuminate\Database\DatabaseServiceProvider::class,
+        Illuminate\Encryption\EncryptionServiceProvider::class,
+        Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Illuminate\Hashing\HashServiceProvider::class,
+        Illuminate\Mail\MailServiceProvider::class,
+        Illuminate\Notifications\NotificationServiceProvider::class,
+        Illuminate\Pagination\PaginationServiceProvider::class,
+        Illuminate\Pipeline\PipelineServiceProvider::class,
+        Illuminate\Queue\QueueServiceProvider::class,
+        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+        // FIX: SessionManager::class is NOT a service provider — it is a manager.
+        // Using it here caused Manager::__construct()->$this->make('config')
+        // to fire during ProviderRepository::compileManifest before
+        // DatabaseServiceProvider::register() could bind 'db', always crashing.
+        // Replaced with SessionServiceProvider::class.
+        Illuminate\Session\SessionServiceProvider::class,
+        Illuminate\View\ViewServiceProvider::class,
+
+        /*
+         * Application Service Providers...
+         */
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
+
     ],
 
-    // Blade facade aliases
-    'aliases' => [
-        'Str' => Illuminate\Support\Facades\Str::class,
+    'aliases' => Illuminate\Support\Facades\Facade::defaultAliases()->merge([
+        // 'Example' => App\Facades\Example::class,
+    ])->toArray(),
+
+    'calls' => [
+        \Illuminate\View\ViewServiceProvider::class => [
+            \Illuminate\View\ViewServiceProvider::class.'::registerBladeComponents',
+        ],
     ],
+
 ];

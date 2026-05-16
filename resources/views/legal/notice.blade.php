@@ -1,8 +1,3 @@
-@extends('layouts.guest')
-
-@section('title', 'Legal Notice - ' . config('app.name'))
-
-@section('content')
 <div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">
@@ -40,4 +35,4 @@
         </div>
     </div>
 </div>
-@endsection
+

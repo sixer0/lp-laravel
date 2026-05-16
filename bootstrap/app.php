@@ -1,33 +1,22 @@
 <?php
 
 use Illuminate\Foundation\Application;
-use Illuminate\Foundation\Configuration\Exceptions;
-use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Contracts\Debug\ExceptionHandler as ExceptionHandlerContract;
+use App\Exceptions\AppExceptionHandler;
 
 return Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
-        web: __DIR__.'/../routes/web.php',
-        commands: __DIR__.'/../routes/console.php',
+        web: __DIR__ . '/../routes/web.php',
+        commands: __DIR__ . '/../routes/console.php',
+        health: '/up',
     )
-    ->withMiddleware(function (Middleware $middleware) {
+    ->withMiddleware(function ($middleware) {
         $middleware->web(append: [
             \App\Http\Middleware\TrustProxies::class,
             \Illuminate\Http\Middleware\HandleCors::class,
             \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
             \Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance::class,
-            \Illuminate\Http\Middleware\AddPathCookies::class,
         ]);
     })
-    ->withExceptions(function (Exceptions $exceptions) {
-        $exceptions->render(function (Throwable $e, $request) {
-            if ($request->expectsJson()) {
-                return response()->json(['error' => $e->getMessage()], 500);
-            }
-            try {
-                return response()->view('errors.500', [], 500);
-            } catch (\Throwable $viewEx) {
-                return response('Server Error: '.$e->getMessage(), 500);
-            }
-        });
-    })
+    // No withExceptions() callback — we register handler in AppServiceProvider
     ->create();
