@@ -10,16 +10,16 @@ return Application::configure(basePath: dirname(__DIR__))
         commands: __DIR__ . '/../routes/console.php',
         health: '/up',
     )
-    ->withMiddleware(function ($middleware) {
+    ->withMiddleware(function (Illuminate\Foundation\Configuration\Middleware $middleware) {
         $middleware->web(append: [
-            \App\Http\Middleware\TrustProxies::class,
-            \Illuminate\Http\Middleware\HandleCors::class,
-            \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-            \Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance::class,
+            App\Http\Middleware\TrustProxies::class,
+            Illuminate\Http\Middleware\HandleCors::class,
+            Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
+            Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance::class,
         ]);
 
-        $middleware->routeMiddleware([
-            'session.admin' => \App\Http\Middleware\AdminMiddleware::class,
+        $middleware->alias([
+            'session.admin' => App\Http\Middleware\AdminMiddleware::class,
         ]);
     })
     // No withExceptions() callback — we register handler in AppServiceProvider
