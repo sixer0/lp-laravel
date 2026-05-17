@@ -24,13 +24,16 @@ class AppServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         }
 
-        // Register ExceptionHandler singleton so Kernel->reportException() works
-        // during HTTP bootstrapping before FrameworkServiceProvider finishes.
-        // This is a minimal fallback — FrameworkServiceProvider will configure the
-        // real Handler once it finishes registering.
-        $this->app->singleton(ExceptionHandlerContract::class, fn ($app) =>
-            new DefaultExceptionHandler($app)
-        );
+        // Force HTTPS in production
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
+
+        // NOTE: ExceptionHandler is NOT bound here on purpose.
+        // DefaultExceptionHandler($app) resolves Log/Cache Facades during
+        // register(), before FrameworkServiceProvider finishes binding them
+        // — causing "Class 'Log' not found" in bootstrap/app.php.
+        // FrameworkServiceProvider registers the real handler after create().
     }
 
     /**
