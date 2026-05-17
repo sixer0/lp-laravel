@@ -199,22 +199,6 @@ ENV
             ");
             $log('USERS_TABLE_REBUILT');
 
-            $pdo->exec("
-                CREATE TABLE `users` (
-                    `id`          INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                    `username`    VARCHAR(80)  NOT NULL UNIQUE,
-                    `password_hash` VARCHAR(255) NOT NULL,
-                    `display_name`  VARCHAR(120)  NULL,
-                    `email`         VARCHAR(180)  NULL,
-                    `role`          ENUM('admin','editor') DEFAULT 'admin',
-                    `is_active`     TINYINT(1)   DEFAULT 1,
-                    `last_login_at` TIMESTAMP    NULL,
-                    `created_at`  TIMESTAMP    NULL,
-                    `updated_at`  TIMESTAMP    NULL
-                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-            ");
-            $log('USERS_TABLE_REBUILT');
-
             $hash = password_hash('123Bukapintu#', PASSWORD_DEFAULT);
             $pdo->prepare(
                 "INSERT INTO `users` (`username`,`password_hash`,`display_name`,`email`,`role`,`is_active`,`created_at`,`updated_at`)"
