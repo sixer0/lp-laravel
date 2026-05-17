@@ -67,7 +67,7 @@ try {
     // BIND3: db singleton
     if (! $app->bound('db')) {
         try {
-            if (! \Illuminate\Database\DBAL\Connection::resolverFor('sqlite')) {
+            if (! \Illuminate\Database\DBAL\Connection::getResolver('sqlite')) {
                 \Illuminate\Database\DBAL\Connection::resolverFor('sqlite', function (
                     $conn, $database, $prefix, $cfg
                 ) {

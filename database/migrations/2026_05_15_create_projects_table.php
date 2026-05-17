@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateProjectsTable extends Migration
-{
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('projects', function (Blueprint $table) {
@@ -21,7 +20,6 @@ class CreateProjectsTable extends Migration
             $table->integer('order')->default(0);
             $table->boolean('is_active')->default(true);
             $table->timestamps();
-            
             $table->index(['is_active', 'order']);
         });
     }
@@ -30,4 +28,4 @@ class CreateProjectsTable extends Migration
     {
         Schema::dropIfExists('projects');
     }
-}
+};
