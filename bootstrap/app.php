@@ -17,6 +17,10 @@ return Application::configure(basePath: dirname(__DIR__))
             \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
             \Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance::class,
         ]);
+
+        $middleware->routeMiddleware([
+            'session.admin' => \App\Http\Middleware\AdminMiddleware::class,
+        ]);
     })
     // No withExceptions() callback — we register handler in AppServiceProvider
     ->create();
