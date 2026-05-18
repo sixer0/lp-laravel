@@ -82,7 +82,7 @@
             @forelse($recent_messages as $msg)
             <div style="border-bottom:1px solid #f1f5f9;padding:.65rem 0;">
                 <div style="font-size:.82rem;font-weight:600;color:#1e293b;">{{ $msg->name }} <span class="badge badge-{{ $msg->status === 'new' ? 'gold' : 'green' }}">{{ $msg->status }}</span></div>
-                <div style="font-size:.78rem;color:#64748b;">{{ Str::limit($msg->message, 90) }}</div>
+                <div style="font-size:.78rem;color:#64748b;">{{ str($msg->message)->limit(90) }}</div>
                 <div style="font-size:.72rem;color:#94a3b8;">{{ $msg->created_at?->diffForHumans() }}</div>
             </div>
             @empty
@@ -98,7 +98,7 @@
             @forelse($recent_projects as $project)
             <div style="border-bottom:1px solid #f1f5f9;padding:.65rem 0;">
                 <div style="font-size:.82rem;font-weight:600;color:#1e293b;">{{ $project->name }}</div>
-                <div style="font-size:.78rem;color:#64748b;">{{ Str::limit($project->description, 90) }}</div>
+                <div style="font-size:.78rem;color:#64748b;">{{ str($project->description)->limit(90) }}</div>
                 <div style="font-size:.72rem;color:#94a3b8;">
                     <span class="badge badge-{{ $project->is_active ? 'green' : 'badge-soft-red' }}">
                         {{ $project->is_active ? 'Aktif' : 'Nonaktif' }}

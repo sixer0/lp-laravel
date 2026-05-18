@@ -50,7 +50,6 @@ lp-laravel/
 ├── .env.example                   # Environment template
 ├── server.php                     # Laravel 11 entry
 └── composer.json                  # Dependencies
-
 ```
 
 ---
@@ -179,7 +178,7 @@ php composer.phar install --no-dev --optimize-autoloader
 cp .env.example .env
 php artisan key:generate
 
-# Database
+# Setup database
 touch database/database.sqlite
 php artisan migrate --force
 php artisan db:seed --class=ProjectSeeder
@@ -207,3 +206,9 @@ php artisan view:cache
 - Landing page, contact form, legal pages
 - Sitejet XML auto-loader for projects
 - Email notifications + error logging
+
+## 🌐 Environment Details
+
+- **Current time:** 2026-05-18T12:10:07+07:00
+- **Working directory:** D:\Portfolio\lp-laravel
+- **Workspace root folder:** D:\Portfolio\lp-laravel

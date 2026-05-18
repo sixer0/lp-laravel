@@ -28,7 +28,7 @@ define('LARAVEL_START', microtime(true));
 /**
  * Laravel project root: the directory that contains vendor/ and routes/
  */
-$base = dirname(dirname(__DIR__));
+$base = dirname(__DIR__);
 
 require $base . '/vendor/autoload.php';
 

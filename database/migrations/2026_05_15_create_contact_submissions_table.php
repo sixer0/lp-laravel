@@ -1,14 +1,9 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContactSubmissionsTable extends Migration
-{
-    /**
-     * Run the migrations.
-     */
+return new class extends Migration {
     public function up(): void
     {
         Schema::create('contact_submissions', function (Blueprint $table) {
@@ -21,21 +16,16 @@ class CreateContactSubmissionsTable extends Migration
             $table->string('ip')->nullable();
             $table->text('user_agent')->nullable();
             $table->string('user_agent_short', 255)->nullable();
-            $table->enum('status', ['new', 'read', 'responded', 'archived'])
-                ->default('new');
+            $table->enum('status', ['new', 'read', 'responded', 'archived'])->default('new');
             $table->timestamps();
             
-            // Indexes
             $table->index(['status', 'created_at']);
             $table->index('email');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('contact_submissions');
     }
-}
+};

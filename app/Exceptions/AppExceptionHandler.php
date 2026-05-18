@@ -24,7 +24,7 @@ class AppExceptionHandler implements \Illuminate\Contracts\Debug\ExceptionHandle
         $body .= "FILE:  " . $e->getFile() . ':' . $e->getLine() . "\n\n";
         $body .= "TRACE:\n" . $trace;
 
-        file_put_contents('/tmp/laravel_trace.txt', $body . "\n" . date('c'), FILE_APPEND);
+        file_put_contents(base_path('storage/logs/laravel_error_trace.txt'), $body . "\n" . date('c'), FILE_APPEND);
 
         return new Response($body, 500, ['Content-Type' => 'text/plain']);
     }

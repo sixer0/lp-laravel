@@ -29,7 +29,10 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump"
-        ]
+        ],
+        "test:env": "php scripts/check_environment.php",
+        "test:db": "php scripts/check_database.php",
+        "test:login": "php tests/e2e/login_flow_test.php"
     },
     "config": {
         "optimize-autoloader": true,

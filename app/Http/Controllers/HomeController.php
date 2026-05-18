@@ -21,21 +21,26 @@ class HomeController extends \App\Http\Controllers\AppBaseController
             $projects = $this->loadProjectsFromXml();
         }
 
-        $a = random_int(1, 9);
-        $b = random_int(1, 9);
-        return view('layouts.guest', compact('projects') + [
-            'captcha_question' => "$a + $b",
-            'captcha_hash' => md5((string)($a + $b)),
-        ]);
+        return view('home', array_merge(
+            compact('projects'),
+            $this->getCaptchaData()
+        ));
     }
 
-    public function project($slug): View
+    public function project($slug)
     {
-        $project = Project::where('slug', $slug)->first();
-        if (!$project) {
-            abort(404, 'Project not found');
-        }
+        $project = Project::where('slug', $slug)->firstOrFail();
         return view('project.show', compact('project'));
+    }
+
+    protected function getCaptchaData(): array
+    {
+        $a = random_int(1, 9);
+        $b = random_int(1, 9);
+        return [
+            'captcha_question' => "$a + $b",
+            'captcha_hash' => md5((string)($a + $b)),
+        ];
     }
 
     protected function loadProjectsFromXml()

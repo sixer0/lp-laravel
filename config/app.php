@@ -44,11 +44,8 @@ return [
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
-        // FIX: SessionManager::class is NOT a service provider — it is a manager.
-        // Using it here caused Manager::__construct()->$this->make('config')
-        // to fire during ProviderRepository::compileManifest before
-        // DatabaseServiceProvider::register() could bind 'db', always crashing.
-        // Replaced with SessionServiceProvider::class.
+        Illuminate\Validation\ValidationServiceProvider::class,
+        Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 

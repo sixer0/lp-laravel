@@ -25,6 +25,8 @@ Thumbs.db
 # Runtime
 *.log
 *.sqlite
+*.html
+*.txt
 
 # Laravel specific
 /storage/*.key

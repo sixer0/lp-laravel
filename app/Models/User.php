@@ -10,7 +10,7 @@ class User extends Model
     use HasFactory;
 
     protected $fillable = [
-        'username', 'password_hash', 'display_name', 'email', 'role', 'is_active',
+        'username', 'password_hash', 'display_name', 'email', 'role', 'is_active', 'last_login_at',
     ];
 
     protected $hidden = ['password_hash'];

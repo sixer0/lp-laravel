@@ -12,7 +12,7 @@ class LoginController extends AppBaseController
     /**
      * Show the login form.
      */
-    public function show(Request $request): Response
+    public function show(Request $request)
     {
         if (session('admin_user_id')) {
             return redirect('/admin');
@@ -26,7 +26,7 @@ class LoginController extends AppBaseController
     /**
      * Process login submission.  POST /admin/login
      */
-    public function authenticate(Request $request): Response
+    public function authenticate(Request $request)
     {
         $request->validate([
             'username' => ['required', 'string', 'max:80'],
@@ -48,37 +48,47 @@ class LoginController extends AppBaseController
             session()->forget("login_attempts:$ip:first");
         }
 
-        $user = User::where('username', $request->input('username'))
-            ->where('is_active', true)
-            ->first();
+        try {
+            $user = User::where('username', $request->input('username'))
+                ->where('is_active', true)
+                ->first();
 
-        $valid = $user && $user->verifyPassword($request->string('password'));
+            $valid = $user && $user->verifyPassword($request->input('password'));
 
-        if ($valid) {
-            session()->forget($key);
-            session()->forget("login_attempts:$ip:first");
-            $request->session()->regenerate(true);
+            if ($valid) {
+                session()->forget($key);
+                session()->forget("login_attempts:$ip:first");
+                $request->session()->regenerate(true);
 
-            $request->session()->put('admin_user_id',       $user->id);
-            $request->session()->put('admin_role',           $user->role);
-            $request->session()->put('admin_username',       $user->username);
-            $request->session()->put('admin_name',           $user->display_name ?? $user->username);
-            $request->session()->put('is_admin_logged_in',   true);
+                $request->session()->put('admin_user_id',       $user->id);
+                $request->session()->put('admin_role',           $user->role);
+                $request->session()->put('admin_username',       $user->username);
+                $request->session()->put('admin_name',           $user->display_name ?? $user->username);
+                $request->session()->put('is_admin_logged_in',   true);
+                $request->session()->save();
 
-            $user->update(['last_login_at' => \Carbon\Carbon::now()]);
-            return redirect('/admin');
+                $user->update(['last_login_at' => \Carbon\Carbon::now()]);
+                return redirect('/admin');
+            }
+
+            session([$key => $at + 1]);
+            if ($at === 0) { session(["login_attempts:$ip:first" => time()]); }
+            return back()->withInput($request->only('username'))
+                ->with('auth_error', 'Username atau password salah.');
+        } catch (\Throwable $e) {
+            // Log the exception for debugging
+            logger('LoginController@authenticate error: ' . $e->getMessage());
+            logger($e->getTraceAsString());
+            // Return a generic error message to avoid leaking sensitive info
+            return back()->withInput($request->only('username'))
+                ->with('auth_error', 'Terjadi kesalahan sistem. Silakan coba lagi.');
         }
-
-        session([$key => $at + 1]);
-        if ($at === 0) { session(["login_attempts:$ip:first" => time()]); }
-        return back()->withInput($request->only('username'))
-            ->with('auth_error', 'Username atau password salah.');
     }
 
     /**
      * Log the admin out.  GET /admin/logout
      */
-    public function logout(Request $request): Response
+    public function logout(Request $request)
     {
         $request->session()->flush();
         return redirect('/');
@@ -170,7 +180,7 @@ ENV
                     $pdo->exec("CREATE TABLE IF NOT EXISTS `migrations` "
                         . "(`id` int unsigned NOT NULL AUTO_INCREMENT, "
                         . "`migration` varchar(255) NOT NULL, `batch` int NOT NULL, "
-                        . "PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
+                        . "`PRIMARY KEY` (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci");
                 }
                 $batch = (int) $pdo->query("SELECT IFNULL(MAX(batch),0)+1 FROM migrations")->fetchColumn();
                 $pdo->prepare("INSERT INTO `migrations` (`migration`,`batch`) VALUES (?,?)")

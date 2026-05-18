@@ -32,7 +32,7 @@ class ContactController extends \App\Http\Controllers\AppBaseController
             $answer  = (int) $request->input('captcha');
             $session = Session::get('captcha_answer');
             if ($session === null || $answer !== (int) $session) {
-                ValidationException::withMessages([
+                throw ValidationException::withMessages([
                     'captcha' => ['Incorrect answer. Please try again.'],
                 ]);
             }
