@@ -1,26 +1,41 @@
+# .htaccess � landing.sixer0-bk.my.id (root-based Laravel)
 <IfModule mod_rewrite.c>
-    <IfModule mod_negotiation.c>
-        Options -MultiViews -Indexes
-    </IfModule>
+  <IfModule mod_negotiation.c>
+    Options -MultiViews -Indexes
+  </IfModule>
 
-    RewriteEngine On
+  RewriteEngine On
 
-    # Handle Authorization Header
-    RewriteCond %{HTTP:Authorization} .
-    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+  # -- Block sensitive files --------------------------------------
+  <FilesMatch "^(\.env|\.git|\.htaccess|\.user\.ini|composer\.(json|lock)|artisan|package\.json|phpunit\.xml|postcss\.config\.js|tailwind\.config\.js|vite\.config\.js|README\.md)$">
+    Require all denied
+  </FilesMatch>
 
-    # -------------------------------------------------------------------
-    # Assets from Sitejet (css, js, images, webcard, g)
-    # These exist directly in devlp/ — serve as-is without touching Laravel
-    # -------------------------------------------------------------------
-    RewriteCond %{REQUEST_URI} ^/(css|js|images|webcard|g|modules-1|expertise|portfolio|projects|get-in-touch|blog-single-page-layout|jobs-1-item|legal-notice|privacy|subpage|real-estate-single-page-layout)/
-    RewriteRule ^ - [L]
+  # -- Force HTTPS ------------------------------------------------
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
-    # -------------------------------------------------------------------
-    # Laravel — route everything else through public/index.php
-    # (We placed index.php in root and adjusted paths below)
-    # -------------------------------------------------------------------
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ index.php?$1 [QSA,L]
+  # -- Handle Authorization / XSRF headers -----------------------
+  RewriteCond %{HTTP:Authorization} .
+  RewriteRule ^ - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+  RewriteCond %{HTTP:X-XSRF-Token} .
+  RewriteRule ^ - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+  # -- Remove trailing slash (not a dir) -------------------------
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_URI} (.+)/$
+  RewriteRule ^ %1 [L,R=301]
+
+  # -- Redirect everything to public/ ----------------------------
+  RewriteCond %{REQUEST_URI} !^/public/
+  RewriteRule ^(.*)$ public/$1 [L]
+
 </IfModule>
+
+<IfModule mod_headers.c>
+  # Cache static assets
+  <FilesMatch "\.(css|js|png|jpg|jpeg|gif|ico|svg|woff2|ttf|eot)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+</IfModule>>

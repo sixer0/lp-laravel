@@ -1,47 +1,23 @@
-# Laravel .gitignore
-
-# Environment
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
 .env
 .env.backup
 .env.production
-.env.testing
-
-# Dependencies
-/vendor
-/node_modules
-
-# Composer
-composer.lock (opsional - jika ingin lock version)
-
-# IDE
-.idea/
-.vscode/
-*.sublime-*
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Runtime
-*.log
-*.sqlite
-*.html
-*.txt
-
-# Laravel specific
-/storage/*.key
-/storage/logs/*.log
-/storage/framework/cache/*
-/storage/framework/sessions/*
-/storage/framework/views/*
-
-# Temporary
-/cache/
-/temp/
-
-# Public uploads (jika ada)
-/public/uploads/
-
-# Database backups
-/*.sql
-*.sql.gz
+.phpactor.json
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/auth.json
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed

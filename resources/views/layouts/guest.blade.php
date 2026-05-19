@@ -188,7 +188,7 @@
                     <li class="nav-item"><a class="nav-link" href="#proyek">Proyek</a></li>
                     <li class="nav-item"><a class="nav-link" href="#visi">Visi &amp; Misi</a></li>
                     <li class="nav-item"><a class="nav-link" href="#tim">Tim</a></li>
-                    <li class="nav-item"><a class="nav-link btn btn-hero-primary text-white ms-2 px-3 py-1" href="#kontak">Mari Bicara</a></li>
+                    <li class="nav-item d-lg-none"><a class="nav-link btn btn-hero-primary text-white ms-2 px-3 py-1" href="#">Mari Berbicara</a></li>
                     <li class="nav-item"><a class="nav-link" href="/admin/login" style="font-size:.8rem;opacity:.75;"><i class="bi bi-terminal me-1"></i>Login CMS</a></li>
                 </ul>
             </div>
@@ -241,9 +241,8 @@
                         <li><a href="#visi">Visi &amp; Misi</a></li>
                         <li><a href="#pengembangan">Pencapaian</a></li>
                         <li><a href="#tim">Tim Kami</a></li>
-                        <li><a href="#kontak">Hubungi Kami</a></li>
-                        <li><a href="/privacy">Kebijakan Privasi</a></li>
-                        <li><a href="/legal-notice">Catatan Hukum</a></li>
+                        <li><a href="#" onclick="openLegal('privacy');return false">Kebijakan Privasi</a></li>
+                        <li><a href="#" onclick="openLegal('notice');return false">Catatan Hukum</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-6">
@@ -316,8 +315,42 @@
         });
     </script>
 
-    @include('legal.notice')
-    @include('legal.privacy')
+    
+
+
+<script src="/public/js/chat-widget.js"></script>
+
+    <!-- LEGAL MODALS -->
+    <div id="legal-modal" style="display:none;position:fixed;inset:0;z-index:2005;background:rgba(0,0,0,.6);align-items:center;justify-content:center;overflow-y:auto;" onclick="if(event.target===this)closeLegal()">
+        <div class="container" style="padding:2rem 1rem;display:flex;justify-content:center;">
+            <div class="card border-0 shadow-lg" style="width:100%;max-width:780px;position:relative;">
+                <button onclick="closeLegal()" style="position:absolute;top:.8rem;right:1rem;background:none;border:none;font-size:1.4rem;color:var(--text-light);cursor:pointer;">&times;</button>
+                <div id="modal-body" class="card-body p-5"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    var _LEGAL = {
+        privacy: { title: "Kebijakan Privasi",
+            body: '<div style="max-height:65vh;overflow-y:auto;"><h1 class="fw-bold mb-4">Kebijakan Privasi</h1><p class="text-muted mb-4">Terakhir diperbarui: '+new Date().toLocaleDateString("en",{year:"numeric",month:"long",day:"numeric"})+'</p><h5 class="mt-4">1. Informasi yang Kami Kumpulkan</h5><p>Kami mengumpulkan informasi yang Anda berikan secara langsung, seperti nama, email, dan nomor telepon ketika Anda mengisi formulir kontak di situs ini.</p><h5 class="mt-4">2. Penggunaan Informasi</h5><p>Informasi yang dikumpulkan digunakan hanya untuk menanggapi pertanyaan dan permintaan Anda. Kami tidak menjual atau menyewakan data pribadi Anda kepada pihak ketiga.</p><h5 class="mt-4">3. Formulir Kontak</h5><p>Saat mengirim pesan melalui formulir kontak, kami mengumpulkan dan memproses:</p><ul><li>Nama lengkap</li><li>Alamat email</li><li>Nomor telepon</li><li>Nama perusahaan (opsional)</li><li>Isi pesan</li></ul><h5 class="mt-4">4. Cookies</h5><p>Situs ini menggunakan cookie untuk meningkatkan pengalaman pengguna. Anda dapat menonaktifkan cookie kapan saja melalui pengaturan browser Anda.</p><h5 class="mt-4">5. Hak Anda</h5><p>Anda berhak untuk mengetahui data pribadi apa saja yang kami simpan, meminta perbaikannya, pemblokiran, atau penghapusan data tersebut.</p></div>' },
+        notice:  { title: "Catatan Hukum",
+            body: '<div style="max-height:65vh;overflow-y:auto;"><h1 class="fw-bold mb-4">Legal Notice</h1><h5 class="mt-4">Informasi sesuai Undang-Undang</h5><p><strong>Budi Kusharyanto</strong><br>IT Consultant &amp; Software Developer<br>Tangerang, Indonesia<br>Email: info@sixer0-bk.my.id</p><h5 class="mt-4">Tanggung Jawab Konten</h5><p>Budi Kusharyanto</p><h5 class="mt-4">Batasan Tanggung Jawab</h5><p>Konten di situs ini disusun dengan sebaik mungkin. Namun, kami tidak menjamin kelengkapan, ketepatan, atau keakuratan informasi yang disajikan.</p><h5 class="mt-4">Hak Cipta</h5><p>Semua konten milik Sixer0 hak cipta dilindungi undang-undang. Diakses dan digunakan hanya untuk keperluan pribadi. Dilarang menggandakan, mendistribusikan, atau memanfaatkan konten ini untuk tujuan komersial tanpa izin tertulis.</p><h5 class="mt-4">Hukum yang Berlaku</h5><p>Situs ini dijalankan sesuai hukum yang berlaku di Indonesia.</p></div>' }
+    };
+    function openLegal(type) {
+        var d = _LEGAL[type]; if (!d) return;
+        document.getElementById('modal-body').innerHTML = d.body;
+        document.getElementById('legal-modal').style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        history.pushState({_legalModal:type}, '', '#legal-'+type);
+    }
+    function closeLegal() {
+        document.getElementById('legal-modal').style.display = 'none';
+        document.body.style.overflow = '';
+        if (history.state && history.state._legalModal) history.back();
+    }
+    document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeLegal(); });
+    </script>
 
 </body>
 </html>

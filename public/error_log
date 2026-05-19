@@ -1,0 +1,8 @@
+[19-May-2026 06:22:58 Asia/Jakarta] LARAVEL-FATAL: The POST method is not supported for route hooks/nailla-chat. Supported methods: GET, HEAD.
+[19-May-2026 06:23:07 Asia/Jakarta] LARAVEL-FATAL: The POST method is not supported for route hooks/nailla-chat. Supported methods: GET, HEAD.
+[19-May-2026 06:23:16 Asia/Jakarta] LARAVEL-FATAL: The POST method is not supported for route hooks/nailla-chat. Supported methods: GET, HEAD.
+[19-May-2026 07:00:41 Asia/Jakarta] LARAVEL-FATAL: The POST method is not supported for route /. Supported methods: GET, HEAD.
+[19-May-2026 07:00:41 Asia/Jakarta] LARAVEL-FATAL: The POST method is not supported for route /. Supported methods: GET, HEAD.
+[19-May-2026 07:00:42 Asia/Jakarta] LARAVEL-FATAL: The POST method is not supported for route /. Supported methods: GET, HEAD.
+[19-May-2026 07:00:43 Asia/Jakarta] LARAVEL-FATAL: The POST method is not supported for route /. Supported methods: GET, HEAD.
+[19-May-2026 07:01:40 Asia/Jakarta] LARAVEL-FATAL: No query results for model [App\Models\Project].

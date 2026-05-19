@@ -53,7 +53,7 @@ class ProjectController extends AppBaseController
         $data['is_active']  = $req->has('is_active') ? '1' : '0';
         $data['order']      = $req->input('order', Project::max('order') + 1);
         Project::create($data);
-        return redirect('/admin/projects')->with('admin_msg', 'Proyek berhasil ditambahkan.');
+        return redirect()->route('admin.projects')->with('admin_msg', 'Proyek berhasil ditambahkan.');
     }
 
     public function edit(Request $req, Project $project): Response
@@ -87,7 +87,7 @@ class ProjectController extends AppBaseController
             $data['slug'] = Str::slug($data['name']);
         }
         $project->update($data);
-        return redirect('/admin/projects')->with('admin_msg', 'Proyek berhasil diperbarui.');
+        return redirect()->route('admin.projects')->with('admin_msg', 'Proyek berhasil diperbarui.');
     }
 
     public function destroy(Request $req, Project $project): Response

@@ -1,0 +1,1 @@
+Hello World<?php /**PATH D:\Portfolio\lp-laravel\resources\views/test.blade.php ENDPATH**/ ?>

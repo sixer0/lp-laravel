@@ -12,24 +12,23 @@
                     <p class="hero-subtitle">Konsultan IT dan kreatif yang membantu bisnis dan organisasi bertransformasi melalui solusi web, aplikasi, dan arsitektur sistem yang tangguh dan berkelanjutan.</p>
                     <div class="hero-cta">
                         <a href="#layanan" class="btn-hero btn-hero-primary"><i class="bi bi-rocket-takeoff"></i> Lihat Layanan</a>
-                        <a href="#kontak" class="btn-hero btn-hero-ghost"><i class="bi bi-chat-dots"></i> Hubungi Kami</a>
-                    </div>
+                                            </div>
                 </div>
                 <div class="col-lg-5 d-none d-lg-block">
                     <div class="hero-grid">
                         <div class="stat-card">
                             <div class="stat-icon"><i class="bi bi-code-slash"></i></div>
-                            <div class="stat-number">50+</div>
+                            <div class="stat-number">30+</div>
                             <div class="stat-label">Proyek Selesai</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-icon"><i class="bi bi-people"></i></div>
-                            <div class="stat-number">30+</div>
+                            <div class="stat-number">20+</div>
                             <div class="stat-label">Klien Puas</div>
                         </div>
                         <div class="stat-card">
                             <div class="stat-icon"><i class="bi bi-clock-history"></i></div>
-                            <div class="stat-number">8+</div>
+                            <div class="stat-number">18+</div>
                             <div class="stat-label">Tahun Pengalaman</div>
                         </div>
                         <div class="stat-card">
@@ -48,9 +47,9 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-7 text-center anim">
-                    <div class="section-eyebrow mx-auto">Tentang Kami</div>
+                    <div class="section-eyebrow mx-auto">Tentang</div>
                     <h2 class="section-title">Membangun Kemandirian<br>Teknologi Indonesia</h2>
-                    <p style="color:var(--text-mid);">Didirikan pada tahun 2017, Sixer0 adalah konsultan IT dan kreatif yang berdedikasi menghadirkan solusi teknologi berkelanjutan, aman, dan mudah diadopsi untuk berbagai sektor industri di Indonesia dan kawasan Asia Tenggara.</p>
+                    <p style="color:var(--text-mid);">Aktif di dunia teknologi sejak 2008, Budi Kusharyanto menghadirkan solusi IT dan kreatif dengan pendekatan yang personal, transparan, dan berfokus pada hasil.dikasi menghadirkan solusi teknologi berkelanjutan, aman, dan mudah diadopsi untuk berbagai sektor industri di Indonesia dan kawasan Asia Tenggara.</p>
                 </div>
             </div>
             <div class="row g-4">
@@ -103,6 +102,14 @@
                         <h5>Mobile App</h5>
                         <p class="text-muted">Aplikasi mobile Flutter atau React Native yang performa tinggi dan user-friendly.</p>
                         <div class="service-tags"><span>Flutter</span><span>React Native</span></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 anim">
+                    <div class="service-card">
+                        <div class="service-icon"><i class="bi bi-robot"></i></div>
+                        <h5>AI &amp; Automation</h5>
+                        <p class="text-muted">Integrasi LLM dan chatbot AI untuk layanan pelanggan otomatis, ekstraksi insight dari percakapan, dan agent AI 24/7.</p>
+                        <div class="service-tags"><span>LLM</span><span>Chatbot</span><span>Workflow AI</span></div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 anim">
@@ -186,7 +193,9 @@
                 @foreach($projects as $project)
                 <div class="col-lg-4 col-md-6 anim">
                     <div class="project-card card">
-                        <div class="project-img"><i class="bi bi-folder2-open"></i></div>
+                         <div class="project-img">
+                             <img src="{{ $project->image_url }}" alt="{{ $project->name }}" class="img-fluid" style="width:100%; height:100%; object-fit:cover;">
+                         </div>
                         <div class="card-body">
                             <span class="project-hours">{{ $project->hours_tag ?? '' }} &bull; {{ $project->price_tag ?? '' }}</span>
                             <h5 class="mt-2">{{ $project->name }}</h5>
@@ -281,8 +290,8 @@
         <div class="container">
             <div class="row justify-content-center mb-5">
                 <div class="col-lg-7 text-center anim">
-                    <div class="section-eyebrow mx-auto">Tim Kami</div>
-                    <h2 class="section-title">Personel<br>&amp; Tim Sixer0</h2>
+                    <div class="section-eyebrow mx-auto">Personel</div>
+                    <h2 class="section-title">Personel<br>&amp; Kontributor</h2>
                     <p class="text-muted">Tim profesional dengan keahlian di bidang rekayasaan perangkat lunak, keamanan siber, manejemen proyek, dan desain sistem yang terpadu.</p>
                 </div>
             </div>
@@ -290,96 +299,27 @@
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-card anim">
                         <div class="team-avatar"><i class="bi bi-person"></i></div>
-                        <h6>Arsitek Sistem</h6>
-                        <p class="team-role">Perencanaan &amp; Desain Arsitektur</p>
+                        <h6>Budi Kusharyanto</h6>
+                        <p class="team-role">IT Consultant &amp; Developer</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-card anim">
                         <div class="team-avatar"><i class="bi bi-person"></i></div>
-                        <h6>Lead Developer</h6>
-                        <p class="team-role">Pengembangan &amp; Code Review</p>
+                        <h6>Developer</h6>
+                        <p class="team-role">Full-stack: Laravel, React, Flutter</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="team-card anim">
                         <div class="team-avatar"><i class="bi bi-person"></i></div>
-                        <h6>Analis Keamanan</h6>
-                        <p class="team-role">Security Audit &amp; Penetration Testing</p>
+                        <h6>Security Analyst</h6>
+                        <p class="team-role">OWASP, Penetration Testing, Hardening</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- KONTAK -->
-    <section id="kontak" class="contact-section" style="background:var(--prussia-50);">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-lg-7 text-center anim">
-                    <div class="section-eyebrow mx-auto" style="color:var(--gold-500);">Kontak</div>
-                    <h2 class="section-title">Mari Berdiskusi</h2>
-                    <p class="text-muted">Sampaikan kebutuhan Anda, tim kami dengan cepat mengirimkan penawaran yang transparan dan sesuai anggaran.</p>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="anim">
-                        <div class="d-flex align-items-center mb-4">
-                            <div style="width:46px;height:46px;border-radius:12px;background:rgba(212,168,67,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-geo-alt" style="color:var(--gold-500);font-size:1.1rem;"></i></div>
-                            <div class="ms-3"><strong>Kantor</strong><br><small class="text-muted">Tangerang, Indonesia</small></div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div style="width:46px;height:46px;border-radius:12px;background:rgba(212,168,67,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-telephone" style="color:var(--gold-500);font-size:1.1rem;"></i></div>
-                            <div class="ms-3"><strong>Telepon / WA</strong><br><small class="text-muted">+62 812-3456-7890</small></div>
-                        </div>
-                        <div class="d-flex align-items-center mb-4">
-                            <div style="width:46px;height:46px;border-radius:12px;background:rgba(212,168,67,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="bi bi-envelope" style="color:var(--gold-500);font-size:1.1rem;"></i></div>
-                            <div class="ms-3"><strong>Email</strong><br><small class="text-muted">info@sixer0-bk.my.id</small></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="contact-form-card anim">
-                        <form id="contactForm" method="POST" action="{{ route('contact.submit') }}">
-                            @csrf
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <label class="form-label">Nama Lengkap *</label>
-                                    <input type="text" name="name" class="form-control" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Email *</label>
-                                    <input type="email" name="email" class="form-control" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Perusahaan</label>
-                                    <input type="text" name="company" class="form-control" placeholder="Opsional">
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Telepon</label>
-                                    <input type="text" name="phone" class="form-control" placeholder="Opsional">
-                                </div>
-                                <div class="col-12">
-                                    <label class="form-label">Pesan *</label>
-                                    <textarea name="message" class="form-control" rows="4" required></textarea>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">Verifikasi</label>
-                                    <div class="input-group">
-                                        <span class="input-group-text bg-light" id="captcha-question">{{ $captcha_question }} = ?</span>
-                                        <input type="hidden" name="captcha_hash" id="captcha-hash" value="{{ $captcha_hash }}">
-                                        <input type="number" name="captcha_answer" class="form-control" placeholder="Jawaban" required>
-                                    </div>
-                                </div>
-                                <div class="col-12 mt-3">
-                                    <button type="submit" class="btn btn-submit"><i class="bi bi-send me-2"></i>Kirim Pesan</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- KONTAK removed — contact via Nailla chat widget -->
 @endsection
